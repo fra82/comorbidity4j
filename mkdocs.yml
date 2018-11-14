@@ -1,0 +1,24 @@
+site_name: Comorbidity4j Documentation
+repo_url: https://github.com/fra82/comorbidity4j
+repo_name: Comorbidity4j GitHub
+theme: readthedocs
+site_description: Documentation of Comorbidity4j, a Java tool to analyze comorbidities over large datasets of patients
+docs_dir: rtdoc
+pages:
+- Home: index.md
+- Overview: Walkthrough.md
+- Input data:
+    - Patient input file format: InputFileFormat.md
+    - Processing OMOP Common Data Model datasets: InputFileFormatOMOP.md
+- Configuration of comorbidity analysis:
+    - Customize diagnosis pairing: DiagnosisPairingConfig.md
+    - Comorbidity analysis parameters: ComorbidityAnalysisParametersConfig.md
+- Executing Comorbidity4j on your pc: LocalExecution.md
+- Comorbidity4web, execute comorbidity analyses on-line: OnlineExecution.md
+- Comorbidity analysis results:
+    - Comorbidity scores: ComorbidityScoresComputed.md
+    - Comorbidity table: ComorbidityTable.md
+    - Web-based interactive visualizations: InteractiveVisualizations.md
+- Contacts and support: Contacts.md
+
+

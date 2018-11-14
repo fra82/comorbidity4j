@@ -1,0 +1,4 @@
+*.rb linguist-language=Java
+*.txt text
+*.xml text
+*.csv text

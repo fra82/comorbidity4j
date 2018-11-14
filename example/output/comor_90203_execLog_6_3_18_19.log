@@ -1,0 +1,181 @@
+   > RESULT FILE CSV: ALL /home/ronzano/Eclipse_WS/comorbidity4j-github/example/output/comor_90203_result_6_3_18_19_MALEandFEMALE.csv
+   > RESULT FILE CSV: FEMALE /home/ronzano/Eclipse_WS/comorbidity4j-github/example/output/comor_90203_result_6_3_18_19_onlyFEMALE.csv
+   > RESULT FILE CSV: MALE /home/ronzano/Eclipse_WS/comorbidity4j-github/example/output/comor_90203_result_6_3_18_19_onlyMALE.csv
+   > PARAMETERS FILE: /home/ronzano/Eclipse_WS/comorbidity4j-github/example/output/comor_90203_parametersAnalysis_6_3_18_19.params
+   > LOG FILE: /home/ronzano/Eclipse_WS/comorbidity4j-github/example/output/comor_90203_execLog_6_3_18_19.log
+   > Loading data... This process can take a while depending on the size and complexity of your dataset.
+exec_555399466 
+exec_555399466 **************************************************
+exec_555399466 ***** LOADING DATA FROM Disease pairing file...
+exec_555399466 ***** Loaded from the Disease pairing file 6 diseases to consider of which:
+exec_555399466 ***** - 4 diseases will be analized for comorbidity against all the diseases of the dataset;
+exec_555399466 ***** - 2 diseases will be analized for comorbidity against all the diseases of the Disease pairing file (6 diseases);
+exec_555399466 ***** - 0 diseases will be analized for comorbidity against a user defined list of deisease codes.
+exec_555399466 **************************************************
+exec_555399466 
+exec_555399466 **************************************************
+exec_555399466 ***** LOADING DATA FROM Patient file...
+exec_555399466 ***** Patient file DATA LOADED: 100000
+exec_555399466 **************************************************
+exec_555399466 
+exec_555399466 **************************************************
+exec_555399466 ***** LOADING DATA FROM Admission file...
+exec_555399466 ***** Admission file DATA LOADED: 361760
+exec_555399466 **************************************************
+exec_555399466 
+exec_555399466 **************************************************
+exec_555399466 ***** LOADING DATA FROM Diagnosis file...
+exec_555399466 ***** Diagnosis file DATA LOADED for 361760 admission (with at least one diagnosis code)
+exec_555399466 **************************************************
+exec_555399466 
+exec_555399466 **************************************************
+exec_555399466 ***** LOADING DATA FROM Disease Description file...
+exec_555399466 ***** Description loaded for 2604 diseases to consider of which:
+exec_555399466 **************************************************
+exec_555399466 **************************************************
+exec_555399466 ***** Creating comorbidity dataset...
+exec_555399466 OUTPUT OF COMORBIDITY DATASET CHECKS:
+
+>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<
+>>> Comorbidity dataset stats <<<
+    *****************************************************************************************************************************************
+    *** IMPORTANT: these stats are computed WITHOUT applying any filter, considering the row data imported from the input files / dataset ***
+    *****************************************************************************************************************************************
+    > Num patients (WITHOUT filters applied - row data): 100000
+    > Num visits (WITHOUT filters applied - row data):   361760
+    > Num diseases (WITHOUT filters applied - row data): 2604.
+    > 
+    > Total visits WITHOUT diagnosis codes associated (over the whole NOT-filtered dataset): 0 over 361760 visits.
+    > Total patients WITHOUT visits associated (over the whole NOT-filtered dataset): 0 over 100000 patients.
+    > Total visits NOT associated to any patient (over the whole NOT-filtered dataset): 0 over 361760 visits.
+    > 
+    > DATA ERROR CHECK: No patients have one or more visits that occurred before the birth date.
+    > 
+    > Patient age statistics: age at first admission date: Stats{count=100000, mean=22.49515000000003, populationStandardDeviation=2.867876649631226, min=18.0, max=28.0}
+    > Patient age statistics: age at first diagnosis date: Stats{count=100000, mean=22.49515000000003, populationStandardDeviation=2.867876649631226, min=18.0, max=28.0}
+    > Patient age statistics: age at last admission date: Stats{count=100000, mean=52.32507999999955, populationStandardDeviation=17.257469773799425, min=18.0, max=92.0}
+    > Patient age statistics: age at last diagnosis date: Stats{count=100000, mean=52.32507999999955, populationStandardDeviation=17.257469773799425, min=18.0, max=92.0}
+    > Patient age statistics: age at execution date: Stats{count=100000, mean=60.29670000000015, populationStandardDeviation=17.26288067241386, min=28.0, max=98.0}
+    > 
+    > Most frequent (max 15) / less frequent (max 15) diseases with respect to the percentage of patients (WITHOUT filters applied - row data): 
+    >       1 - 'F31' = 1227 patients (1.2270% of patients)  > Description: 9-group:  - Bipolar disorder, current episode hypomanic - Bipolar disorder, current episode manic without psychotic features - Bipolar disorder, current episode depressed, severe, without psychotic features - Bipolar disorder, current episode depressed, severe, with psychotic features - Bipolar disorder, current episode manic severe with psychotic features - Bipolar disorder, current episode depressed, mild or moderate severity - Bipolar disorder, current episode mixed - Bipolar disorder, currently in remission - Bipolar disorder
+         > in Disease Pairing file, paired with the diseases 'true' for comorbidity analysis
+    >       2 - 'F32' = 946 patients (.9460% of patients)  > Description: Major depressive disorder, single episode
+         > in Disease Pairing file, paired with the diseases 'true' for comorbidity analysis
+    >       3 - 'C90' = 675 patients (.6750% of patients)  > Description: Multiple myeloma and malignant plasma cell neoplasms
+         > in Disease Pairing file, paired with the diseases 'true' for comorbidity analysis
+    >       4 - 'D33' = 530 patients (.5300% of patients)  > Description: 4-group:  - Benign neoplasm of brain, supratentorial - Benign neoplasm of brain, infratentorial - Benign neoplasm of spinal cord - Benign neoplasm of cranial nerves
+         > in Disease Pairing file, paired with the diseases 'true' for comorbidity analysis
+    >       5 - 'C47.12' = 183 patients (.1830% of patients)  > Description: Malignant neoplasm of peripheral nerves of left upper limb, including shoulder
+    >       6 - 'M05.42' = 180 patients (.1800% of patients)  > Description: Rheumatoid myopathy with rheumatoid arthritis of elbow
+    >       7 - 'E10.65' = 177 patients (.1770% of patients)  > Description: Type 1 diabetes mellitus with hyperglycemia
+    >       8 - 'C10.8' = 176 patients (.1760% of patients)  > Description: Malignant neoplasm of overlapping sites of oropharynx
+    >       9 - 'F14.180' = 175 patients (.1750% of patients)  > Description: Cocaine abuse with cocaine-induced anxiety disorder
+    >       10 - 'M06.02' = 175 patients (.1750% of patients)  > Description: Rheumatoid arthritis without rheumatoid factor, elbow
+    >       11 - 'C57.02' = 174 patients (.1740% of patients)  > Description: Malignant neoplasm of left fallopian tube
+    >       12 - 'D65' = 173 patients (.1730% of patients)  > Description: Disseminated intravascular coagulation [defibrination syndrome]
+    >       13 - 'C49.5' = 172 patients (.1720% of patients)  > Description: Malignant neoplasm of connective and soft tissue of pelvis
+    >       14 - 'C80.2' = 170 patients (.1700% of patients)  > Description: Malignant neoplasm associated with transplanted organ
+    >       15 - 'Z12' = 170 patients (.1700% of patients)  > Description: Encounter for screening for malignant neoplasms
+    >       2588 - 'B40.0' = 107 patients (.1070% of patients)  > Description: Acute pulmonary blastomycosis
+    >       2589 - 'O99.355' = 106 patients (.1060% of patients)  > Description: Diseases of the nervous system complicating the puerperium
+    >       2590 - 'E71.51' = 105 patients (.1050% of patients)  > Description: Disorders of peroxisome biogenesis
+    >       2591 - 'D16.1' = 105 patients (.1050% of patients)  > Description: Benign neoplasm of short bones of upper limb
+    >       2592 - 'B96.82' = 105 patients (.1050% of patients)  > Description: Vibrio vulnificus as the cause of diseases classified elsewhere
+    >       2593 - 'C47' = 104 patients (.1040% of patients)  > Description: Malignant neoplasm of peripheral nerves and autonomic nervous system
+    >       2594 - 'F94.2' = 104 patients (.1040% of patients)  > Description: Disinhibited attachment disorder of childhood
+    >       2595 - 'D31.01' = 103 patients (.1030% of patients)  > Description: Benign neoplasm of right conjunctiva
+    >       2596 - 'O9A.12' = 103 patients (.1030% of patients)  > Description: Malignant neoplasm complicating childbirth
+    >       2597 - 'E10.22' = 102 patients (.1020% of patients)  > Description: Type 1 diabetes mellitus with diabetic chronic kidney disease
+    >       2598 - 'M05.111' = 101 patients (.1010% of patients)  > Description: Rheumatoid lung disease with rheumatoid arthritis of right shoulder
+    >       2599 - 'A42.0' = 101 patients (.1010% of patients)  > Description: Pulmonary actinomycosis
+    >       2600 - 'C40.21' = 99 patients (.0990% of patients)  > Description: Malignant neoplasm of long bones of right lower limb
+    >       2601 - 'F95.2' = 98 patients (.0980% of patients)  > Description: Tourette's disorder
+    >       2602 - 'C04.0' = 97 patients (.0970% of patients)  > Description: Malignant neoplasm of anterior floor of mouth
+    >       2603 - 'Z98.62' = 80 patients (.0800% of patients)  > Description: Peripheral vascular angioplasty status
+    >       2604 - 'A18.7' = 62 patients (.0620% of patients)  > Description: Tuberculosis of adrenal glands    > 
+    > 
+    > Disease pairing to create disease pairs to analyze for comorbidity:
+    >    Loaded 6 diseases read from the Disease Pairing file of which:
+    >        - 4 diseases will be analized for comorbidity against all the diseases of the dataset;
+    >        - 2 diseases will be analized for comorbidity against all the diseases of the Disease pairing file (6 diseases);
+    >        - 0 diseases will be analized for comorbidity against a user defined list of deisease codes.
+    > 
+    > Number of disease codes included in the Disease Description file: 2604.
+    > 
+>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<
+
+
+exec_555399466 **************************************************
+exec_555399466 ***** Info on the pairs of disases to study for comorbidity analysis...
+exec_555399466 ***** Number of diseases pairs to study 20814.
+exec_555399466 ***** Number of diseases of the dataset that are included in at least one disease pair to study 2604 (over 2604 diseases in input data).
+exec_555399466 ***** 
+exec_555399466 ***** Top-5 and botom-5 diseases paired with more / less diseases to study comorbidities:
+exec_555399466 *****        > Disease 1 over 2604 participating in more pairs > DISEASE ID F44.4 (90) participates in 2603 disease pairs to study for comorbidity.
+exec_555399466 *****        > Disease 2 over 2604 participating in more pairs > DISEASE ID C90 (94) participates in 2603 disease pairs to study for comorbidity.
+exec_555399466 *****        > Disease 3 over 2604 participating in more pairs > DISEASE ID D33 (252) participates in 2603 disease pairs to study for comorbidity.
+exec_555399466 *****        > Disease 4 over 2604 participating in more pairs > DISEASE ID I70.1 (1160) participates in 2603 disease pairs to study for comorbidity.
+exec_555399466 *****        > Disease 5 over 2604 participating in more pairs > DISEASE ID F32 (214) participates in 5 disease pairs to study for comorbidity.
+exec_555399466 *****        > Disease 2599 over 2604 participating in more pairs > DISEASE ID H36 (2599) participates in 4 disease pairs to study for comorbidity.
+exec_555399466 *****        > Disease 2600 over 2604 participating in more pairs > DISEASE ID M06.251 (2600) participates in 4 disease pairs to study for comorbidity.
+exec_555399466 *****        > Disease 2601 over 2604 participating in more pairs > DISEASE ID D37.0 (2601) participates in 4 disease pairs to study for comorbidity.
+exec_555399466 *****        > Disease 2602 over 2604 participating in more pairs > DISEASE ID D40.12 (2602) participates in 4 disease pairs to study for comorbidity.
+exec_555399466 *****        > Disease 2603 over 2604 participating in more pairs > DISEASE ID G47.21 (2603) participates in 4 disease pairs to study for comorbidity.
+exec_555399466 *****        > Disease 2604 over 2604 participating in more pairs > DISEASE ID E87.4 (2604) participates in 4 disease pairs to study for comorbidity.
+exec_555399466 ***** Comorbidity dataset created, including  2604 diseases.
+exec_555399466 **************************************************
+exec_555399466 
+
+
+Heap size: 2524.0 Mb, Max heap size: 7092.0 Mb, Free heap size: 2046.5627136230469 Mb
+
+ComorbidityMiner contents:
+ComorbidityMiner [execID=exec_555399466
+ data_fullPath=/home/ronzano/Eclipse_WS/comorbidity4j-github/example/input/
+ data_fileName_admissionData=admissionData.csv
+ data_fileName_diagnosisData=diagnosisData.csv
+ data_fileName_patientData=patientData.csv
+ data_fileName_diseaseDescription=diagnosisDescription.csv
+ data_fileName_diagnosisPairing=diagnosisPairing.csv
+ date_format=yyyy-MM-dd
+ columnName_patientData_patient_id=patient_id
+ columnName_patientData_patient_dateBirth=patient_birth_date
+ columnName_patientData_patient_sex=patient_sex
+ columnName_admissionData_patient_id=patient_id
+ columnName_admissionData_admission_id=admission_id
+ columnName_admissionData_admission_date=admission_date
+ columnName_diagnosisData_patient_id=patient_id
+ columnName_diagnosisData_admission_id=admission_id
+ columnName_diagnosisData_diagnosis_code=diagnosis_code
+ columnName_diagnosisDescriptionData_code=diagnosis_code
+ columnName_diagnosisDescriptionData_description=diagnosis_description
+ columnName_diagnosisPairing_code=diagnosis_code
+ columnName_diagnosisPairing_paired_diseases=paired_diseases
+ columnName_diagnosisPairing_group=diagnosis_group
+ enableMultithread=true
+ numThreads=3
+ diseasePairingDefault=INDEX_DISEASES
+ patientAgeComputation=LAST_DIAGNOSTIC
+ pvalAdjApproach=BONFERRONI
+ sexRatioFemaleIdentifier=Female
+ sexRatioMaleIdentifier=Male
+ patientFilter=null
+ scoreFilter=null
+ directionalityFilter=ComorbidityDirectionalityFilter [minNumDays=14]
+ patientListSize=100000
+ visitList=361760
+ diagnosisCodeStringIdMapSize=2604
+ diagnosisCodeStringDescriptionMapSize=2604
+ comorDatasetObj=ComorbidityDataset [patientListSize=100000, visitListSize=361760, diagnosisCodeStringIdMapSize=2604, diagnosisCodeStringDescriptionMapSize=2604, visitByIDmap_indexSize=361760, patientByIDmap_indexSize=100000, patientIDdiseaseIDSetMap_index=100000, diseaseIDpatientIDSetMap_index=2604, diseaseIDsetPatientMap_indexSize=2604, diseaseIDsetVisitMap_indexSize=2604]]
+
+   > Starting comoridity analysis...
+Start storing results CSV...
+   Stored 10000 ALL CSV lines over 20814 (48.045 %)
+   Stored 20000 ALL CSV lines over 20814 (96.089 %)
+   Stored 10000 FEMALE CSV lines over 20814 (48.045 %)
+   Stored 20000 FEMALE CSV lines over 20814 (96.089 %)
+   Stored 10000 MALE CSV lines over 20814 (48.045 %)
+   Stored 20000 MALE CSV lines over 20814 (96.089 %)
+Stored results CSV.
+Execution completed.
