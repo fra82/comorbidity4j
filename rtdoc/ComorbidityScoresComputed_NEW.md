@@ -1,9 +1,6 @@
 ![Comorbidity4j](/img/logo.png)
 <h1>Comorbidity scores</h1>
-  
-** THIS FILE IS CURRENTLY UNDER REVISION, DURING THE NEXT FEW DAYS A NEW VERSION WILL BE AVAILABLE AS PART OF COMORBIDITY4J DOCUMENTATION**  
-  
-  
+
 Comorbidity4j estimates several measures to determine if two diseases are comorbid in the population under study: Risk Ratio (RR), Odds Ratio (OR), Comorbidity score (CS), Phi value (PHI). In addition, a Fisher exact test can be applied to determine the significance of the associations.
   
   

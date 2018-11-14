@@ -1,9 +1,5 @@
 ![Comorbidity4j](/img/logo.png)
 <h1>Comorbidity table</h1>
-  
-** THIS FILE IS CURRENTLY UNDER REVISION, DURING THE NEXT FEW DAYS A NEW VERSION WILL BE AVAILABLE AS PART OF COMORBIDITY4J DOCUMENTATION**  
-  
-  
 
 This table represents the main output of a comorbidity analysis carried out by means of Comorbidity4j over a specific patient population.  
 

@@ -1,8 +1,5 @@
 <h1>Processing OMOP Common Data Model datasets</h1>
-  
-** THIS FILE IS CURRENTLY UNDER REVISION, DURING THE NEXT FEW DAYS A NEW VERSION WILL BE AVAILABLE AS PART OF COMORBIDITY4J DOCUMENTATION**  
-  
-  
+
 The <a href="https://www.ohdsi.org/data-standardization/" target="_blank">Observational Medical Outcomes Partnership Common Data Model (OMOP CDM)</a> defines a shared set of data structures useful to ease tha integration and systematic analysis of disparate observational databases. Such data model has been developed and maintained by the Observational Health Data Sciences and Informatics (OHDSI).  
   
 Comorbidity4j can execute comorbidity analysis by processing input data compliant with the <a href="https://github.com/OHDSI/CommonDataModel/wiki" target="_blank">OMOP Common Data Model specifications</a>. Such data model defines a set of tables to standardize the representation of disparate observational databases. To carry out comorbidity analyses, Comorbidity4j will rely on the following three tables:  
