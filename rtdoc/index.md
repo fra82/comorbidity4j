@@ -48,7 +48,7 @@ Comorbidity analyses can be executed:
 * [Processing OMOP Common Data Model datasets](InputFileFormatOMOP.md)    
 * [Interactive upload and validation of input data](InteractiveInputDataUploadAndValidation.md)    
 * [Diagnosis grouping and pairing](DiagnosisGroupingAndPairing.md)  
-* [Configuration of comorbidity analysis parameters](ComorbidityAnalysisParametersConfig.md)  
+* [Comorbidity analysis parameters](ComorbidityAnalysisParametersConfig.md)  
 * [Executing Comorbidity4j on your pc](LocalExecution.md)  
 * [Comorbidity4web: execute comorbidity analyses on-line](OnlineExecution.md)    
 * [Comorbidity scores](ComorbidityScoresComputed.md)  

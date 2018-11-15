@@ -1,19 +1,16 @@
 ![Comorbidity4j](/img/logo.png)
 <h1>Comorbidity table</h1>
-  
-** THIS FILE IS CURRENTLY UNDER REVISION, DURING THE NEXT FEW DAYS A NEW VERSION WILL BE AVAILABLE AS PART OF COMORBIDITY4J DOCUMENTATION**  
-  
-  
 
-This table represents the main output of a comorbidity analysis carried out by means of Comorbidity4j over a specific patient population.  
-
+This table includes the results of a comorbidity analysis carried out by means of Comorbidity4j over a specific patient population.  
+  
 The comorbidity table is a spreadsheet (TAB-separated, UTF-8) where each row describes the result of the comorbidity analysis of a pair of diseases (diagnoses): disease A and disease B.  
   
 Each row includes the following sets of columns:  
   
   
-+ **Disease pair identification columns**:  
-for each disease of the pair of diseases, a numeric (columns *disAcodeNum* / *disBcodeNum*) and string (columns *disAcode* / *disBcode*) identifier is provided, together with the extended name (column *disAname* / *disBname*). The string identifier is the one associated to the disease in the Diagnosis data file provided by the user (see: [Patient input file format](InputFileFormat.md)).  
+## Disease pair identification columns  
+    
+For each disease of the pair of diseases, a numeric (columns *disAcodeNum* / *disBcodeNum*) and string (columns *disAcode* / *disBcode*) identifier is provided, together with the extended name (column *disAname* / *disBname*). The string identifier is the one associated to the disease in the Diagnosis data file provided by the user (see: [Patient input file format](InputFileFormat.md)).  
     - *disAcodeNum*  
     - *disAcode*  
     - *disAname*  
@@ -22,56 +19,63 @@ for each disease of the pair of diseases, a numeric (columns *disAcodeNum* / *di
     - *disBname*  
   
   
-+ **Patient-diseases columns**:  
+## Patient-diseases columns  
+    
 The following columns describing the number of patients experimenting the diseases A and / or B:  
-    - patTotal: total number of patients of the comorbidity analysis  
-    - patWdisA: number of patients with disease A  
-    - patWdisB: number of patients with disease B  
-    - patWdisAB: number of patients with disease A and disease B  
-    - patWdisAnotB: number of patients with disease A and not disease B
-    - patWdisBnotA: number of patients with disease B and not disease A  
-    - patWOdisAB: number of patients without disease A and without disease B  
+    - *patTotal*: total number of patients of the comorbidity analysis  
+    - *patWdisA*: number of patients with disease A  
+    - *patWdisB*: number of patients with disease B  
+    - *patWdisAB*: number of patients with disease A and disease B  
+    - *patWdisAnotB*: number of patients with disease A and not disease B
+    - *patWdisBnotA*: number of patients with disease B and not disease A  
+    - *patWOdisAB*: number of patients without disease A and without disease B  
   
   
-+ **Comorbidity scores columns**:  
+## Comorbidity scores columns
+    
 The following columns provide the comorbidity scores associated the the pair of diseases (see [Comorbidity scores](ComorbidityScoresComputed.md)):  
-    - Relative Risk Index  
-    - Phi Index  
-    - Odds Ratio Index (with lower and upper bounds of 95% confidence interval)  
-    - Fisher Test  
-    - Fisher Test Adjusted (by the adjustment approach specified by the  [Comorbidity analysis parameters](ComorbidityAnalysisParametersConfig.md))  
-    - Comorbidity Score  
+    - *Relative Risk Index*  
+    - *Phi Index*  
+    - *Odds Ratio Index* (with lower and upper bounds of 95% confidence interval)  
+    - *Fisher Test*  
+    - *Fisher Test Adjusted* (by the adjustment approach specified by the  [Comorbidity analysis parameters](ComorbidityAnalysisParametersConfig.md))  
+    - *Comorbidity Score*  
   
   
-+ **Sex ratio columns**:  
-    - femaleWithDisA: female patients with disease A  
-    - femaleWithDisB: female patients with disease B  
-    - femaleWithDisAandB: female patients with disease A and disease B  
-    - maleWithDisA: male patients with disease A  
-    - maleWithDisB: male patients with disease B  
-    - maleWithDisAandB: male patients with disease A and disease B  
-    - sexRatioBA: a sex-ratio value close to zero indicates that the co-occurrence of the disease B with the disease A is equally likely for males and females. Positive (negative) values of sex ratio indicate that the co-occurrence of the disease B with the disease on the A is more likely for females (males).  
-    - sexRatioAB: a sex-ratio value close to zero indicates that the co-occurrence of the disease A with the disease B is equally likely for males and females. Positive (negative) values of sex ratio indicate that the co-occurrence of the disease A with the disease on the B is more likely for females (males).  
+## Sex ratio columns  
+  
+    - *femaleWithDisA*: female patients with disease A  
+    - *femaleWithDisB*: female patients with disease B  
+    - *femaleWithDisAandB*: female patients with disease A and disease B  
+    - *maleWithDisA*: male patients with disease A  
+    - *maleWithDisB*: male patients with disease B  
+    - *maleWithDisAandB*: male patients with disease A and disease B  
+    - *sexRatioBA*: a sex-ratio value close to zero indicates that the co-occurrence of the disease B with the disease A is equally likely for males and females. Positive (negative) values of sex ratio indicate that the co-occurrence of the disease B with the disease on the A is more likely for females (males).  
+    - *sexRatioAB*: a sex-ratio value close to zero indicates that the co-occurrence of the disease A with the disease B is equally likely for males and females. Positive (negative) values of sex ratio indicate that the co-occurrence of the disease A with the disease on the B is more likely for females (males).  
   
   
   
-Example of first two lines of the Comorbidity table (in this example more than one TAB chars have been added to align visually column - the file generated by the tool adds a single TAB to sepair columns):  
+Example of first two lines of the Comorbidity table (in this example more than one TAB chars have been added to align visually column - the file generated by the tool adds a single TAB to separate columns):  
   
 ```
-disAcodeNum	disAcode	disAname		
-1	311	Depressive disorder, not elsewhere classified (Dp)	
-
-disBcodeNum	disBcode	disBname
-170	200.88	Other named variants of lymphosarcoma and reticulosarcoma, lymph nodes of multiple sitesMixed lymphosarc mult (NH)
-
-patTotal	patWdisA	patWdisB	patWdisAB	patWdisAnotB	patWdisBnotA	patWOdisAB
-824221	19347	8	1	19346	7	804867
-
-relativeRiskIndex	phiIndex	oddsRatioIndex	oddsRatio95CI_upper	oddsRatio95CI_lower	fisherTest	fisherTestAdjusted	expect	score	
-5.32525	0.00209	5.9434	48.31093	0.73118	0.1730610854	1	0.18778	0.75173
-
-
-femaleWithDisA	femaleWithDisB	femaleWithDisAandB	maleWithDisA	maleWithDisB	maleWithDisAandB	sexRatioBA	sexRatioAB
-13292	6	1	6055	2	0	1.94591	9.49499
-
+disAcodeNum   disAcode   disAname                     
+44            733.09     Other osteoporosis	
+  
+disBcodeNum   disBcode   disBname 
+69            427.31     Atrial fibrillation
+  
+patTotal   patWdisA   patWdisB   patWdisAB   patWdisAnotB   patWdisBnotA   patWOdisAB   
+1095       37         35         10          27             25             1033
+  
+relativeRiskIndex   phiIndex   oddsRatioIndex   oddsRatio95CI_upper   oddsRatio95CI_lower   
+8.4556              0.25335    15.3037          34.98843              6.69374                  
+  
+fisherTest   fisherTestAdjusted   expect   score   
+5.48E-08     0.0001938966         1.18265  2.33335
+  
+femaleWithDisA   femaleWithDisB   femaleWithDisAandB   maleWithDisA   maleWithDisB   maleWithDisAandB   
+24               9                5                    13             26             5 
+  
+sexRatioBA   sexRatioAB
+-0.79493     0.47692
 ```  

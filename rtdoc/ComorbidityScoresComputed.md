@@ -1,9 +1,6 @@
 ![Comorbidity4j](/img/logo.png)
 <h1>Comorbidity scores</h1>
   
-** THIS FILE IS CURRENTLY UNDER REVISION, DURING THE NEXT FEW DAYS A NEW VERSION WILL BE AVAILABLE AS PART OF COMORBIDITY4J DOCUMENTATION**  
-  
-  
 Comorbidity4j estimates several measures to determine if two diseases are comorbid in the population under study: Risk Ratio (RR), Odds Ratio (OR), Comorbidity score (CS), Phi value (PHI). In addition, a Fisher exact test can be applied to determine the significance of the associations.
   
   
@@ -62,7 +59,7 @@ The Pearson correlation coefficient, can take a range of values from +1 to -1:
   
 A Fisher exact test for each pair of diseases is performed to assess the null hypothesis of independence between the two diseases. Four groups of patients are defined in order to perform the statistical testing: patients diagnosed with disease A and disease B, patients diagnosed with disease A but not disease B, patients diagnosed with disease B but not disease A and patients not diagnosed with disease A nor disease B. The Fisher exact test is then applied to estimate the p-value for each pair of diseases. The Benjamini-Hochberg false discovery rate method [3] is applied on the ranked list to correct for multiple testing.  
 
-Comorbidity4j compute also adjusted Fisher exact test p-values by giving the suers the possibility to choose among one of the following adjustment approaches: BONFERRONI, BENJAMINI_HOCHBERG, HOLM, HOCHBERG, BENJAMINI_YEKUTIELI, HOMMEL. The p-value adjustment approach to consider can be specified by Comorbidity4j users by means of a specific parameter of the property file (see [Comorbidity analysis parameters](ComorbidityAnalysisParametersConfig.md)). To get more information about the p-value adjustment approaches available in Comorbidity4j, please refer to the documentation of the R method <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html" target="_blank">p.adjust</a>.  
+Comorbidity4j compute also adjusted Fisher exact test p-values by giving the users the possibility to choose among one of the following adjustment approaches: BONFERRONI, BENJAMINI_HOCHBERG, HOLM, HOCHBERG, BENJAMINI_YEKUTIELI, HOMMEL. The p-value adjustment approach to consider can be specified by Comorbidity4j users by means of a specific parameter of the property file (see [Comorbidity analysis parameters](ComorbidityAnalysisParametersConfig.md)). To get more information about the p-value adjustment approaches available in Comorbidity4j, please refer to the documentation of the R method <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html" target="_blank">p.adjust</a>.  
   
   
 ## Sex ratio  
