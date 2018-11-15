@@ -1,88 +1,134 @@
-DIAGNOSIS_CODE	DIAGNOSIS_DESCRIPTION
-153.8	Malignant neoplasm of other specified sites of large intestine
-153.9	Malignant neoplasm of colon, unspecified site
-162.9	Malignant neoplasm of bronchus and lung, unspecified
-199.1	Other malignant neoplasm without specification of site
-233.4	Carcinoma in situ of prostate
-239.5	Neoplasm of unspecified nature of other genitourinary organs
-244.9	Unspecified acquired hypothyroidism
-250.4	Diabetes with renal manifestations, type II or unspecified type, not stated as uncontrolled
-272.4	Other and unspecified hyperlipidemia
-274.89	Gout with other specified manifestations
-274.9	Gout, unspecified
-277.7	Dysmetabolic syndrome X
-296.2	Major depressive affective disorder, single episode, unspecified
-303.9	Other and unspecified alcohol dependence, unspecified
-309.81	Posttraumatic stress disorder
-331	Alzheimer's disease
-338.29	Other chronic pain
-345.8	Other forms of epilepsy and recurrent seizures, without mention of intractable epilepsy
-345.9	Epilepsy, unspecified, without mention of intractable epilepsy
-346.71	Chronic migraine without aura, with intractable migraine, so stated, without mention of status migrainosus
-34	Streptococcal sore throat
-382.9	Unspecified otitis media
-427.31	Atrial fibrillation
-427.5	Cardiac arrest
-434.91	Cerebral artery occlusion, unspecified with cerebral infarction
-461.8	Other acute sinusitis
-466	Acute bronchitis
-473.8	Other chronic sinusitis
-473.9	Unspecified sinusitis (chronic)
-484.8	Pneumonia in other infectious diseases classified elsewhere
-486	Pneumonia, organism unspecified
-491.2	Obstructive chronic bronchitis without exacerbation
-492.8	Other emphysema
-541	Appendicitis, unqualified
-542	Other appendicitis
-574.2	Calculus of gallbladder without mention of cholecystitis, without mention of obstruction
-575	Acute cholecystitis
-583.81	Nephritis and nephropathy, not specified as acute or chronic, in diseases classified elsewhere
-585.1	Chronic kidney disease, Stage I
-585.2	Chronic kidney disease, Stage II (mild)
-585.3	Chronic kidney disease, Stage III (moderate)
-590.8	Pyelonephritis, unspecified
-595.89	Other specified types of cystitis
-595.9	Cystitis, unspecified
-631	Other abnormal product of conception
-633.1	Tubal pregnancy
-633.1	Tubal pregnancy without intrauterine pregnancy
-634.92	Spontaneous abortion, without mention of complication, complete
-637.92	Unspecified abortion, without mention of complication, complete
-642.41	Mild or unspecified pre-eclampsia, delivered, with or without mention of antepartum condition
-642.42	Mild or unspecified pre-eclampsia, delivered, with mention of postpartum complication
-642.43	Mild or unspecified pre-eclampsia, antepartum condition or complication
-642.44	Mild or unspecified pre-eclampsia, postpartum condition or complication
-642.4	Mild or unspecified pre-eclampsia, unspecified as to episode of care or not applicable
-642.63	Eclampsia, antepartum condition or complication
-642.6	Eclampsia, unspecified as to episode of care or not applicable
-691.8	Other atopic dermatitis and related conditions
-692.89	Contact dermatitis and other eczema due to other specified agents
-692.9	Contact dermatitis and other eczema, unspecified cause
-714	Rheumatoid arthritis
-715.14	Osteoarthrosis, localized, primary, hand
-715.96	Osteoarthrosis, unspecified whether generalized or localized, lower leg
-726.1	Disorders of bursae and tendons in shoulder region, unspecified
-733.09	Other osteoporosis
-733	Osteoporosis, unspecified
-790.6	Other abnormal blood chemistry
-800.09	Closed fracture of vault of skull without mention of intracranial injury, with concussion, unspecified
-836.2	Other tear of cartilage or meniscus of knee, current
-842.09	Other sprains and strains of wrist
-842	Sprain of wrist, unspecified site
-845.09	Other sprains and strains of ankle
-845	Sprain of ankle, unspecified site
-850.5	Concussion with loss of consciousness of unspecified duration
-850.9	Concussion, unspecified
-850	Concussion with no loss of consciousness
-854	Intracranial injury of other and unspecified nature without mention of open intracranial wound, unspecified state of consciousness
-892	Open wound of foot except toe(s) alone, without mention of complication
-949.1	Erythema [first degree], unspecified site
-949.2	Blisters, epidermal loss [second degree], unspecified site
-949.3	Full-thickness skin loss [third degree nos]
-959.7	Knee, leg, ankle, and foot injury
-995.3	Allergy, unspecified, not elsewhere classified
-V12.53	Personal history of sudden cardiac arrest
-V12.59	Personal history of other diseases of circulatory system
-V22.2	Pregnant state, incidental
-V45.79	Other acquired absence of organ
-V85.30	Body Mass Index 30.0-30.9, adult
+CODE	DESCRIPTION
+444814009	Viral sinusitis (disorder)
+43878008	Streptococcal sore throat (disorder)
+65363002	Otitis media
+195662009	Acute viral pharyngitis (disorder)
+284549007	Laceration of hand
+39848009	Whiplash injury to neck
+75498004	Acute bacterial sinusitis (disorder)
+233678006	Childhood asthma
+44465007	Sprain of ankle
+62106007	Concussion with no loss of consciousness
+38341003	Hypertension
+65966004	Fracture of forearm
+370247008	Facial laceration
+10509002	Acute bronchitis (disorder)
+40055000	Chronic sinusitis (disorder)
+44054006	Diabetes
+368581000119106	Neuropathy due to type 2 diabetes mellitus (disorder)
+302870006	Hypertriglyceridemia (disorder)
+237602007	Metabolic syndrome X (disorder)
+80394007	Hyperglycemia (disorder)
+15777000	Prediabetes
+70704007	Sprain of wrist
+36971009	Sinusitis (disorder)
+162864005	Body mass index 30+ - obesity (finding)
+284551006	Laceration of foot
+33737001	Fracture of rib
+408512008	Body mass index 40+ - severely obese (finding)
+53741008	Coronary Heart Disease
+22298006	Myocardial Infarction
+399211009	History of myocardial infarction (situation)
+230690007	Stroke
+410429000	Cardiac Arrest
+429007001	History of cardiac arrest (situation)
+72892002	Normal pregnancy
+19169002	Miscarriage in first trimester
+156073000	Fetus with unknown complication
+38822007	Cystitis
+398254007	Preeclampsia
+74400008	Appendicitis
+428251008	History of appendectomy
+283385000	Laceration of thigh
+16114001	Fracture of ankle
+307731004	Injury of tendon of the rotator cuff of shoulder
+58150001	Fracture of clavicle
+263102004	Fracture subluxation of wrist
+62564004	Concussion with loss of consciousness
+359817006	Closed fracture of hip
+55680006	Drug overdose
+88805009	Chronic congestive heart failure (disorder)
+446096008	Perennial allergic rhinitis
+403190006	First degree burn
+124171000119105	Chronic intractable migraine without aura
+7200002	Alcoholism
+5602001	Opioid abuse (disorder)
+126906006	Neoplasm of prostate
+92691004	Carcinoma in situ of prostate (disorder)
+192127007	Child attention deficit disorder
+239720000	Tear of meniscus of knee
+262574004	Bullet wound
+301011002	Escherichia coli urinary tract infection
+198992004	Antepartum eclampsia
+185086009	Chronic obstructive bronchitis (disorder)
+68496003	Polyp of colon
+444448004	Injury of medial collateral ligament of knee
+239873007	Osteoarthritis of knee
+55822004	Hyperlipidemia
+403191005	Second degree burn
+26929004	Alzheimer's disease (disorder)
+233604007	Pneumonia
+87433001	Pulmonary emphysema (disorder)
+201834006	Localized  primary osteoarthritis of the hand
+35999006	Blighted ovum
+196416002	Impacted molars
+79586000	Tubal pregnancy
+431855005	Chronic kidney disease stage 1 (disorder)
+127013003	Diabetic renal disease (disorder)
+422034002	Diabetic retinopathy associated with type II diabetes mellitus (disorder)
+239872002	Osteoarthritis of hip
+45816000	Pyelonephritis
+6072007	Bleeding from anus
+236077008	Protracted diarrhea
+94260004	Secondary malignant neoplasm of colon
+110030002	Concussion injury of brain
+232353008	Perennial allergic rhinitis with seasonal variation
+241929008	Acute allergic reaction
+713197008	Recurrent rectal polyp
+109838007	Overlapping malignant neoplasm of colon
+197927001	Recurrent urinary tract infection
+47693006	Rupture of appendix
+444470001	Injury of anterior cruciate ligament
+64859006	Osteoporosis (disorder)
+82423001	Chronic pain
+128613002	Seizure disorder
+703151001	History of single seizure (situation)
+84757009	Epilepsy
+283371005	Laceration of forearm
+403192003	Third degree burn
+1551000119108	Nonproliferative diabetic retinopathy due to type 2 diabetes mellitus (disorder)
+30832001	Rupture of patellar tendon
+161622006	History of lower limb amputation (situation)
+433144002	Chronic kidney disease stage 3 (disorder)
+90781000119102	Microalbuminuria due to type 2 diabetes mellitus (disorder)
+157141000119108	Proteinuria due to type 2 diabetes mellitus (disorder)
+367498001	Seasonal allergic rhinitis
+363406005	Malignant tumor of colon
+24079001	Atopic dermatitis
+40275004	Contact dermatitis
+40930008	Hypothyroidism (disorder)
+90560007	Gout
+65275009	Acute Cholecystitis
+235919008	Cholelithiasis
+49436004	Atrial Fibrillation
+443165006	Pathological fracture due to osteoporosis (disorder)
+449868002	Smokes tobacco daily
+36923009	Major depression  single episode
+370143000	Major depression disorder
+230265002	Familial Alzheimer's disease of early onset (disorder)
+48333001	Burn injury(morphologic abnormality)
+275272006	Brain damage - traumatic
+162573006	Suspected lung cancer (situation)
+254637007	Non-small cell lung cancer (disorder)
+424132000	Non-small cell carcinoma of lung  TNM stage 1 (disorder)
+195967001	Asthma
+1501000119109	Proliferative diabetic retinopathy due to type II diabetes mellitus (disorder)
+1734006	Fracture of the vertebral column with spinal cord injury
+698754002	Chronic paralysis due to lesion of spinal cord
+431856006	Chronic kidney disease stage 2 (disorder)
+86849004	Suicidal deliberate poisoning
+47505003	Posttraumatic stress disorder
+314994000	Metastasis from malignant tumor of prostate (disorder)
+93761005	Primary malignant neoplasm of colon
+69896004	Rheumatoid arthritis
+97331000119101	Macular edema and retinopathy due to type 2 diabetes mellitus (disorder)

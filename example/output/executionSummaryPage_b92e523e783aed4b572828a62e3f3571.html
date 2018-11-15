@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+  <title>Comorbidity analysis b92e523e783aed4b572828a62e3f3571 (2018-11-15 18:24:04)</title>
+  <!-- Jquery and JqueryUI -->
+  <script src="js/jquery-3.2.1.min.js?v=601932392"></script>
+  <script src="js/jquery-ui.min.js?v=601932392"></script>
+  <link rel="stylesheet" href="css/jquery-ui.min.css?v=601932392" type="text/css" />
+  
+  <!-- Slider -->
+  <script src="js/jquery-ui-slider-pips.js?v=601932392"></script>
+  <link rel="stylesheet" href="css/jquery-ui-slider-pips.css?v=601932392" type="text/css" />
+  
+  <!-- Plotly.js -->
+  <script src="js/plotly-latest.min.js?v=601932392"></script>
+  
+  <!-- Vis.js -->
+  <script src="js/vis.min.js?v=601932392"></script>
+  <link rel="stylesheet" href="css/vis.min.css?v=601932392" type="text/css" />
+    
+  <!-- Tabulator.js -->
+  <link href="css/tabulator.min.css?v=601932392" rel="stylesheet">
+  <script type="text/javascript" src="js/tabulator.min.js?v=601932392"></script>
+  
+  <!-- Navigation bar -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+  <link href="css/styleNav.css?v=601932392" rel="stylesheet">
+  <script type="text/javascript" src="js/indexNav.js?v=601932392"></script>
+  
+  <!-- DIAGNOSIS GROUP SELECTION - START -->
+  <!-- Selectize.js - https://github.com/selectize/selectize.js -->
+  <link href="css/selectize.css?v=601932392" rel="stylesheet">
+  <script type="text/javascript" src="js/selectize.min.js?v=601932392"></script>
+  
+  <!-- custom -->
+  <link rel="stylesheet" href="css/main.css?v=601932392" type="text/css" />
+  
+</head>
+
+
+<body>
+
+<script>
+setTimeout(function(){
+   if( $('#placeholderHidden').length == 0 ) { window.location.reload(1); }
+}, 10000);
+</script>
+<div style='color: green; border: 1px black solid; padding: 10px; margin: 15px;'>
+<b><span style='color:#980027;'>From this URL, the progress of comorbidity analysis can be monitored and then the result can be accessed</span></b><br/>
+<b>This page will automatically be reloaded every 10 seconds, up to the termination of the comorbidity data analysis in the server.</span></b><br/><br/>
+<b><span style='color:#980027'><b>Depending on the size of your dataset and the load of the server, the data processing could take several minutes: do not close this tab in the meanwhile!</b></span><br/><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;You are executing an online analysis of comorbidities. The server has limited resources and can process up to 200000 pairs of diagnoses. Please, consider to execute locally <a href='https://comorbidity4j.readthedocs.io/en/latest/' traget='_blank'>comorbidity4web</a> to perform more extensive alanyses if these limitations may cause some problem.<br/><br/>
+<span style='color:blue;'><h2>Data analysis progress messages</h2></span>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>STEP 1 / 6 - Comorbidity4web: loading data...</b>
+&nbsp;<b>COMPLETED</b><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>STEP 1 / 6 - Comorbidity4web: Estimated number of comorbidity pairs to process</b>:&nbsp;8778<br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>STEP 2 / 6 - Comorbidity4web: pre-processing 8778 pairs of diagnoses...&nbsp; // Time elapsed in seconds, JVM total memory //:&nbsp;</b><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:black;'>
+<b>0 s, JVM mem: 592 Mb.</b>&nbsp;&gt;&nbsp;
+</span>
+&nbsp;<b>COMPLETED</b><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>STEP 3 / 6 - Comorbidity4web: executing analysis of 8778 pairs of diagnoses (females + males)...&nbsp; // Step completion percentage (time elapsed in seconds - s., JVM total memory) //:&nbsp;</b><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:black;'>
+<b>00.000% (0 s, JVM mem: 592 Mb)</b>&nbsp;&gt;&nbsp;
+</span>
+&nbsp;<b>COMPLETED</b><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>STEP 4 / 6 - Comorbidity4web: executing analysis of 8778 pairs of diagnoses (females)...&nbsp; // Step completion percentage (time elapsed in seconds - s., JVM total memory) //:&nbsp;</b><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:black;'>
+<b>00.000% (0 s, JVM mem: 772 Mb)</b>&nbsp;&gt;&nbsp;
+</span>
+&nbsp;<b>COMPLETED</b><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>STEP 5 / 6 - Comorbidity4web: executing analysis of 8778 pairs of diagnoses (males)...&nbsp; // Step completion percentage (time elapsed in seconds - s., JVM total memory) //:&nbsp;</b><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:black;'>
+<b>00.000% (0 s, JVM mem: 770 Mb)</b>&nbsp;&gt;&nbsp;
+</span>
+&nbsp;<b>COMPLETED</b><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>STEP 6 / 6 - Comorbidity4web: generating output...&nbsp; // Time elapsed in seconds, JVM total memory //:&nbsp;</b><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style='color:black;'>
+<b>0 s, JVM mem: 768 Mb.</b>&nbsp;&gt;&nbsp;
+</span>
+&nbsp;<b>COMPLETED</b><br/><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>Comorbidity4web: <span style='color:#980027;'>Storing the HTML interactive visualization file, please wait...</span></b><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>Comorbidity4web: <span style='color:#980027;'>Storing the CSV result file with ALL results, please wait...</span></b><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>Comorbidity4web: <span style='color:#980027;'>Storing the CSV result file with FEMALE results, please wait...</span></b><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>Comorbidity4web: <span style='color:#980027;'>Storing the CSV result file with MALE results, please wait...</span></b><br/>
+&nbsp;&nbsp;&nbsp;<b>&gt;</b>&nbsp;<b>Comorbidity4web: <span style='color:#980027;'>Storing the ZIP result file, please wait...</span></b><br/>
