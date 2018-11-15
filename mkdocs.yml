@@ -12,7 +12,8 @@ pages:
     - Processing OMOP Common Data Model datasets: InputFileFormatOMOP.md
 - Configuration of comorbidity analysis:
     - Interactive upload and validation of input data: InteractiveInputDataUploadAndValidation.md
-    - Configuration of comorbidity analysis parameters: ComorbidityAnalysisParametersConfig.md
+    - Diagnosis grouping and pairing: DiagnosisGroupingAndPairing.md
+    - COmorbidity analysis parameters: ComorbidityAnalysisParametersConfig.md
 - Executing Comorbidity4j on your pc: LocalExecution.md
 - Comorbidity4web, execute comorbidity analyses on-line: OnlineExecution.md
 - Comorbidity analysis results:

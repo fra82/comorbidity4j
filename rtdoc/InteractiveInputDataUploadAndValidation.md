@@ -1,7 +1,7 @@
 ![Comorbidity4j](/img/logo.png)
 <h1>Interactive upload and validation of input data</h1>
   
-Once connected by means of a Web browser to Comorbidity4j (to a locally running server to to <a href="http://comorbidity.eu/comorbidity4web/" target="_blank">http://comorbidity.eu/comorbidity4web/</a>), Comorbidity4j web application drives the user troughout the interactive upload and validation of input data (see [Patient input file format](InputFileFormat.md) for an overview of the input data format).  
+Once connected by means of a Web browser to Comorbidity4j (to a locally running server to to <a href="http://comorbidity.eu/comorbidity4web/" target="_blank">http://comorbidity.eu/comorbidity4web/</a>), **Comorbidity4j web application drives the user throughout the interactive upload and validation of input data** (see [Patient input file format](InputFileFormat.md) for an overview of the input data format).  
   
 The process of input data upload and validation is articulated in four sequential steps, useful to upload respectively the **Patient data file**, the **Visits data file**, the **Diagnosis data file** and, optionally, the **Diagnosis description file**. Below you can find a detailed description of these steps.  
 
@@ -52,37 +52,37 @@ The **Diagnosis data file** describes the diagnosis associated to each visit of 
   
 + upload the tabular file (i.e. CSV, TSV - UTF-8-encoded text file) by specifying the column separator and eventual text delimiter:
   
-![Visit data file upload](/img/input_c4web_upload_D.png)  
+![Diagnosis data file upload](/img/input_c4web_upload_D.png)  
   
   
 + interactively select the columns that specify the *patient_id*, the *visit_id* and the *diagnosis_code* columns:  
   
-![Visit data file column semantics](/img/input_c4web_columns_D.png)  
+![Diagnosis data file column semantics](/img/input_c4web_columns_D.png)  
   
   
 + check the uploaded data by exploring an overview info table:
   
-![Visit data file uploaded data check](/img/input_c4web_checks_D.png)  
+![Diagnosis data file uploaded data check](/img/input_c4web_checks_D.png)  
   
   
 
 ## Uploading and validating the Diagnosis description file  
   
-The **Diagnosis description data file** describes the diagnosis associated to each visit of the patients of your clinical dataset, one visit diagnosis per row (see file format description at: [Diagnosis input file format](InputFileFormat.md#diagnosis-description-file) or <a href="https://raw.githubusercontent.com/fra82/comorbidity4j/master/example/input/diagnosis_descriptions_comorbidity4j_example.csv" target="_blank">download an example</a>). You will be required to:  
+The **Diagnosis description data file** constitutes an optional input file. It describes the diagnosis associated to each visit of the patients of your clinical dataset, one visit diagnosis per row (see file format description at: [Diagnosis input file format](InputFileFormat.md#diagnosis-description-file) or <a href="https://raw.githubusercontent.com/fra82/comorbidity4j/master/example/input/diagnosis_descriptions_comorbidity4j_example.csv" target="_blank">download an example</a>). You will be required to:  
   
 + upload the tabular file (i.e. CSV, TSV - UTF-8-encoded text file) by specifying the column separator and eventual text delimiter:
   
-![Visit data file upload](/img/input_c4web_upload_DD.png)  
+![Diagnosis description data file upload](/img/input_c4web_upload_DD.png)  
   
   
 + interactively select the columns that specify the *diagnosis_code* and the *diagnosis_description* columns:  
   
-![Visit data file column semantics](/img/input_c4web_columns_DD.png)  
+![Diagnosis description file column semantics](/img/input_c4web_columns_DD.png)  
   
   
 + check the uploaded data by exploring an overview info table:
   
-![Visit data file uploaded data check](/img/input_c4web_checks_DD.png)  
+![Diagnosis description file uploaded data check](/img/input_c4web_checks_DD.png)  
   
   
   
