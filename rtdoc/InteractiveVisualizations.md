@@ -19,7 +19,7 @@ By clicking on the gear button shown at the right side of the previous menu, it 
   
 General information and links to download the results of the analysis.  
   
-![Comorbidity4web Input Parameters](/img/c4web_general info.png)  
+![Comorbidity4web Input Parameters](/img/c4web_generalInfo.png)  
   
     
 ## Input parameters overview  

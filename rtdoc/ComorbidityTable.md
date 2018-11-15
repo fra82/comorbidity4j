@@ -44,6 +44,7 @@ The following columns provide the comorbidity scores associated the the pair of 
   
 ## Sex ratio columns  
   
+The following columns are useful to characterize the sex ratio:   
     - *femaleWithDisA*: female patients with disease A  
     - *femaleWithDisB*: female patients with disease B  
     - *femaleWithDisAandB*: female patients with disease A and disease B  
