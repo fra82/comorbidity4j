@@ -15,7 +15,7 @@ Comorbidity4j takes as input a datasets of patient data distributed across the f
   
 ## Patient data file  
 
-The **Patient data file** (MANDATORY, <a href="https://raw.githubusercontent.com/fra82/comorbidity4j/master/example/input/patients_comorbidity4j_example.csv" target="_blank">download example</a>) rovides the data describing your patients by means of a tabular dataset (i.e. CSV, TSV - UTF-8-encoded text file).  
+The **Patient data file** (MANDATORY, <a href="https://raw.githubusercontent.com/fra82/comorbidity4j/master/example/input/patients_comorbidity4j_example.csv" target="_blank">download example</a>) provides the data describing your patients by means of a tabular dataset (i.e. CSV, TSV - UTF-8-encoded text file).  
   
 Each row of the Patient Data file should characterize a single patient by specifying, in different columns, the *patient_id*, *patient_birth_date* and, optionally, the *patient_gender* and *other patient facets* that you would like to use to stratify patients. After uploading the Patient Data file you will interactively define the type of patient-related information specified by each columns.  
   
