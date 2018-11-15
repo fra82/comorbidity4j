@@ -11,8 +11,8 @@ pages:
     - Patient input file format: InputFileFormat.md
     - Processing OMOP Common Data Model datasets: InputFileFormatOMOP.md
 - Configuration of comorbidity analysis:
-    - Customize diagnosis pairing: DiagnosisPairingConfig.md
-    - Comorbidity analysis parameters: ComorbidityAnalysisParametersConfig.md
+    - Interactive upload and validation of input data: InteractiveInputDataUploadAndValidation.md
+    - Configuration of comorbidity analysis parameters: ComorbidityAnalysisParametersConfig.md
 - Executing Comorbidity4j on your pc: LocalExecution.md
 - Comorbidity4web, execute comorbidity analyses on-line: OnlineExecution.md
 - Comorbidity analysis results:

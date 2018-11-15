@@ -1,10 +1,10 @@
 ![Comorbidity4j](/img/logo.png)
 <h1>Patient input file format</h1>
 
-Comorbidity4j takes as input a datasets of patient data distributed across the following four **Patient input data files** describing respectively (I) patients, (II) visits, (III) diagnoses (diseases) and (IV) optionally providing extended free text descriptions of diagnoses (diseases). It is possible to <a href="https://github.com/fra82/comorbidity4j/raw/master/example/input/comorbidity4j_example_dataset.tar.gz" target="_blank">download an example dataset</a> to inspect the input tabular files that Comorbidity4web expects as input to execute a comorbidity analysis and try the tool.     
+Comorbidity4j takes as input a datasets of patient data distributed across the following four **Patient input data files** describing respectively (I) patients, (II) visits, (III) diagnoses (diseases) and (IV) optionally providing extended free text descriptions of diagnoses (diseases). This page describes the format of the input dataset that Comorbidity4j expects. It is possible to <a href="https://github.com/fra82/comorbidity4j/raw/master/example/input/comorbidity4j_example_dataset.tar.gz" target="_blank">download an example dataset</a> to inspect the input tabular files that Comorbidity4j expects as input to execute a comorbidity analysis as well as to experience with the tool.     
   
   
-**Input data are interactively uploaded to Comorbidity4j by means of your Web browser, thus allowing to interactively specify their format (column separator, date format, semantics of columns, etc.) and validate their contents.**   
+**Input data are uploaded to Comorbidity4j by means of your Web browser: an interactive Web interface will drive you in specifying file format (column separator, date format, semantics of columns, etc.) and validating their contents.**   
   
 + All these files should be provided as **spreadsheets encoded in UTF-8, with columns separated by TAB, comma or vertical bar**.  
 + The four spreadsheet input files can include any number of columns, provided that the set of columns defined as mandatory in this documentation is present.  
@@ -20,6 +20,7 @@ The **Patient data file** (MANDATORY, <a href="https://raw.githubusercontent.com
 Each row of the Patient Data file should characterize a single patient by specifying, in different columns, the *patient_id*, *patient_birth_date* and, optionally, the *patient_gender* and *other patient facets* that you would like to use to stratify patients. After uploading the Patient Data file you will interactively define the type of patient-related information specified by each columns.  
   
 Columns of the Patient Data file:  
+  
 + *patient_id*: (mandatory) ID that unambiguously identifies the patient (any non-empty String can be used)  
 + *patient_birth_date*: (mandatory) Birth date of the patient (the format of date will be automatically parsed while importing data)  
 + *patient_gender*: (optional) Gender of the patient (any set non-empty String can be used - at least two different value to characterize female and male patients should be present)  
@@ -47,6 +48,7 @@ The **Visit data file** (MANDATORY, <a href="https://raw.githubusercontent.com/f
 Each row of the Visit Data file should characterize a single visit of a patient by specifying, in different columns, the *patient_id*, the *visit_id* and the *visit_date*. After uploading the Visit Data file you will interactively define the type of patient-related information specified by each columns.  
   
 Columns of the Visit Data file:  
+  
 + *patient_id*: (mandatory) ID that unambiguously identifies the patient (any non-empty String can be used)  
 + *visit_id*: (mandatory) ID that unambiguously identifies the visit / admission (any non-empty String can be used)  
 + *visit_date*: (mandatory) Visit date (format interactively specified by the user)  
@@ -72,6 +74,7 @@ Each row of the Diagnosis Data file should describe the association of a diagnos
   
   
 Columns:  
+  
 + *patient_id*: (mandatory) ID that unambiguously identifies the patient (any non-empty String can be used)  
 + *visit_id*: (mandatory) ID that unambiguously identifies the visit / admission (any non-empty String can be used)  
 + *diagnosis_code*: (mandatory) ID that unambiguously identifies the disease / diagnosis related to the visit (any non-empty String can be used - i.e. ICD9, SNOMED-CT, CUI or any other identifier)  
@@ -101,6 +104,7 @@ Remember that if a Diagnosis Description file is not provided, in the interactiv
   
   
 Columns:  
+    
 + *diagnosis_code*: (mandatory) ID that unambiguously identifies the disease / diagnosis related to the visit (any non-empty String can be used - i.e. ICD9, SNOMED-CT, CUI or any other identifier)
 + *diagnosis_description*: (mandatory) string that provides a textual description of the diagnosis code.
   
