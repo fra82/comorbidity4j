@@ -169,18 +169,13 @@
 			<dependency> <groupId>org.freemarker</groupId> <artifactId>freemarker</artifactId> 
 			<version>2.3.23</version> </dependency> -->
 
-		<!-- JETTY SERVER EMBEDDED: https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
+		<!-- JETTY SERVER EMBEDDED: https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
 			<version>9.4.7.v20170914</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-servlet</artifactId>
-			<version>9.4.7.v20170914</version>
-		</dependency>
+ 		-->
 
 		<!-- COMMNS FILE-UPLOAD: https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
 		<dependency>
