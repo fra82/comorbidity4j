@@ -74,9 +74,11 @@
 			</#list>
 			<li>
 			<div style="text-align: center; vertical-align: middle; line-height: 15px; border: none; font-family: Gill Sans, Verdana; font-size: 14px; letter-spacing: 2px; font-weight: bold; color:black;">
-			&#9400; 2018, <a class="sidebarNavLink-c4j" style="background:#F3FAB6; text-align:center; border: none; height: 15px; margin-bottom: 5px;" onMouseOver="this.style.color='green'" onMouseOut="this.style.color='black'" href="http://grib.imim.es/research/integrative-biomedical-informatics/index/" target="_blank">
+			&#9400; 2018, <a class="sidebarNavLink-c4j" style="background:#F3FAB6; text-align:center; border: none; height: 15px; margin-bottom: 5px;" onMouseOver="this.style.color='green'" onMouseOut="this.style.color='black'" href="https://github.com/fra82/comorbidity4j/blob/master/LICENSE" target="_blank">GNU AFFERO v3</a><br/>
+			<a class="sidebarNavLink-c4j" style="background:#F3FAB6; text-align:center; border: none; height: 15px; margin-bottom: 5px;" onMouseOver="this.style.color='green'" onMouseOut="this.style.color='black'" href="http://grib.imim.es/research/integrative-biomedical-informatics/index/" target="_blank">
 	     			Integrative Biomedical Informatics Group, GRIB
-	  			</a>
+	  			</a><br>
+	  			
 	  		<div>
 	  		</li>
 	     </ul>

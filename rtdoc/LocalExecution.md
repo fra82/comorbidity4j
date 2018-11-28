@@ -18,10 +18,10 @@ The compressed archive (comorbidity4j-2.0-bin.zip) that contains the latest vers
   
 ```
 // Linux users:  
-java -cp './comorbidity4j-LATEST-VERS.jar:./lib/*' es.imim.ibi.comorbidity4j.server.spring.StartComorbidity4j  
+java -cp './comorbidity4j-LATEST-VERS.jar:./lib/*' es.imim.ibi.comorbidity4j.server.StartComorbidity4j  
     
 // Windows users:  
-java -cp "c:\Full\Local\Path\To\comorbidity4j-LATEST-VERS\comorbidity4j-LATEST-VERS.jar;c:\Full\Local\Path\To\comorbidity4j-LATEST-VERS\lib\*" es.imim.ibi.comorbidity4j.server.spring.StartComorbidity4j  
+java -cp "c:\Full\Local\Path\To\comorbidity4j-LATEST-VERS\comorbidity4j-LATEST-VERS.jar;c:\Full\Local\Path\To\comorbidity4j-LATEST-VERS\lib\*" es.imim.ibi.comorbidity4j.server.StartComorbidity4j  
 ```  
   
 + Open by your favorite Web browser the URL: <a href="http://localhost:8181/comorbidity4web/" target="_blank">http://localhost:8181/comorbidity4web/</a>. Here you can access the Web interface that will drive you throughout the different step and the exploration of results of a comorbidity analysis. The same Web interface can be accessed at <a href="http://comorbidity.eu/comorbidity4web/" target="_blank">http://comorbidity.eu/comorbidity4web/</a> as the COmorbidity4web service, for online execution of comorbidity analyses.  
