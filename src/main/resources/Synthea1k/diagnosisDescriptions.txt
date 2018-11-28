@@ -1,0 +1,134 @@
+diagnosis_code	diagnosis_description
+CODE_40055000	Chronic sinusitis (disorder)
+CODE_10509002	Acute bronchitis (disorder)
+CODE_195662009	Acute viral pharyngitis (disorder)
+CODE_36971009	Sinusitis (disorder)
+CODE_70704007	Sprain of wrist
+CODE_162864005	Body mass index 30+ - obesity (finding)
+CODE_15777000	Prediabetes
+CODE_444814009	Viral sinusitis (disorder)
+CODE_403191005	Second degree burn
+CODE_403190006	First degree burn
+CODE_284551006	Laceration of foot
+CODE_53741008	Coronary Heart Disease
+CODE_22298006	Myocardial Infarction
+CODE_399211009	History of myocardial infarction (situation)
+CODE_239872002	Osteoarthritis of hip
+CODE_19169002	Miscarriage in first trimester
+CODE_55822004	Hyperlipidemia
+CODE_44465007	Sprain of ankle
+CODE_43878008	Streptococcal sore throat (disorder)
+CODE_65966004	Fracture of forearm
+CODE_64859006	Osteoporosis (disorder)
+CODE_49436004	Atrial Fibrillation
+CODE_230690007	Stroke
+CODE_241929008	Acute allergic reaction
+CODE_446096008	Perennial allergic rhinitis
+CODE_233678006	Childhood asthma
+CODE_65363002	Otitis media
+CODE_74400008	Appendicitis
+CODE_428251008	History of appendectomy
+CODE_72892002	Normal pregnancy
+CODE_198992004	Antepartum eclampsia
+CODE_301011002	Escherichia coli urinary tract infection
+CODE_156073000	Fetus with unknown complication
+CODE_39848009	Whiplash injury to neck
+CODE_68496003	Polyp of colon
+CODE_128613002	Seizure disorder
+CODE_703151001	History of single seizure (situation)
+CODE_84757009	Epilepsy
+CODE_38341003	Hypertension
+CODE_239720000	Tear of meniscus of knee
+CODE_35999006	Blighted ovum
+CODE_370247008	Facial laceration
+CODE_307731004	Injury of tendon of the rotator cuff of shoulder
+CODE_16114001	Fracture of ankle
+CODE_33737001	Fracture of rib
+CODE_44054006	Diabetes
+CODE_302870006	Hypertriglyceridemia (disorder)
+CODE_237602007	Metabolic syndrome X (disorder)
+CODE_80394007	Hyperglycemia (disorder)
+CODE_239873007	Osteoarthritis of knee
+CODE_368581000119106	Neuropathy due to type 2 diabetes mellitus (disorder)
+CODE_62106007	Concussion with no loss of consciousness
+CODE_75498004	Acute bacterial sinusitis (disorder)
+CODE_444448004	Injury of medial collateral ligament of knee
+CODE_408512008	Body mass index 40+ - severely obese (finding)
+CODE_38822007	Cystitis
+CODE_398254007	Preeclampsia
+CODE_284549007	Laceration of hand
+CODE_24079001	Atopic dermatitis
+CODE_47693006	Rupture of appendix
+CODE_283385000	Laceration of thigh
+CODE_192127007	Child attention deficit disorder
+CODE_232353008	Perennial allergic rhinitis with seasonal variation
+CODE_124171000119105	Chronic intractable migraine without aura
+CODE_422034002	Diabetic retinopathy associated with type II diabetes mellitus (disorder)
+CODE_1551000119108	Nonproliferative diabetic retinopathy due to type 2 diabetes mellitus (disorder)
+CODE_97331000119101	Macular edema and retinopathy due to type 2 diabetes mellitus (disorder)
+CODE_65275009	Acute Cholecystitis
+CODE_235919008	Cholelithiasis
+CODE_283371005	Laceration of forearm
+CODE_62564004	Concussion with loss of consciousness
+CODE_263102004	Fracture subluxation of wrist
+CODE_196416002	Impacted molars
+CODE_82423001	Chronic pain
+CODE_55680006	Drug overdose
+CODE_30832001	Rupture of patellar tendon
+CODE_26929004	Alzheimer's disease (disorder)
+CODE_713197008	Recurrent rectal polyp
+CODE_363406005	Malignant tumor of colon
+CODE_40930008	Hypothyroidism (disorder)
+CODE_93761005	Primary malignant neoplasm of colon
+CODE_58150001	Fracture of clavicle
+CODE_262574004	Bullet wound
+CODE_201834006	Localized  primary osteoarthritis of the hand
+CODE_431855005	Chronic kidney disease stage 1 (disorder)
+CODE_127013003	Diabetic renal disease (disorder)
+CODE_230265002	Familial Alzheimer's disease of early onset (disorder)
+CODE_410429000	Cardiac Arrest
+CODE_429007001	History of cardiac arrest (situation)
+CODE_162573006	Suspected lung cancer (situation)
+CODE_254637007	Non-small cell lung cancer (disorder)
+CODE_424132000	Non-small cell carcinoma of lung  TNM stage 1 (disorder)
+CODE_87433001	Pulmonary emphysema (disorder)
+CODE_88805009	Chronic congestive heart failure (disorder)
+CODE_109838007	Overlapping malignant neoplasm of colon
+CODE_444470001	Injury of anterior cruciate ligament
+CODE_36923009	Major depression  single episode
+CODE_370143000	Major depression disorder
+CODE_79586000	Tubal pregnancy
+CODE_233604007	Pneumonia
+CODE_443165006	Pathological fracture due to osteoporosis (disorder)
+CODE_1734006	Fracture of the vertebral column with spinal cord injury
+CODE_698754002	Chronic paralysis due to lesion of spinal cord
+CODE_359817006	Closed fracture of hip
+CODE_449868002	Smokes tobacco daily
+CODE_431856006	Chronic kidney disease stage 2 (disorder)
+CODE_90781000119102	Microalbuminuria due to type 2 diabetes mellitus (disorder)
+CODE_110030002	Concussion injury of brain
+CODE_126906006	Neoplasm of prostate
+CODE_92691004	Carcinoma in situ of prostate (disorder)
+CODE_197927001	Recurrent urinary tract infection
+CODE_185086009	Chronic obstructive bronchitis (disorder)
+CODE_6072007	Bleeding from anus
+CODE_236077008	Protracted diarrhea
+CODE_94260004	Secondary malignant neoplasm of colon
+CODE_5602001	Opioid abuse (disorder)
+CODE_40275004	Contact dermatitis
+CODE_275272006	Brain damage - traumatic
+CODE_367498001	Seasonal allergic rhinitis
+CODE_403192003	Third degree burn
+CODE_47505003	Posttraumatic stress disorder
+CODE_90560007	Gout
+CODE_45816000	Pyelonephritis
+CODE_69896004	Rheumatoid arthritis
+CODE_195967001	Asthma
+CODE_1501000119109	Proliferative diabetic retinopathy due to type II diabetes mellitus (disorder)
+CODE_433144002	Chronic kidney disease stage 3 (disorder)
+CODE_157141000119108	Proteinuria due to type 2 diabetes mellitus (disorder)
+CODE_48333001	Burn injury(morphologic abnormality)
+CODE_7200002	Alcoholism
+CODE_86849004	Suicidal deliberate poisoning
+CODE_314994000	Metastasis from malignant tumor of prostate (disorder)
+CODE_161622006	History of lower limb amputation (situation)
