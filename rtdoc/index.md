@@ -19,7 +19,7 @@ Comorbidity analyses can be executed:
 **Source code available at**: <a href="https://github.com/fra82/comorbidity4j" target="_blank">https://github.com/fra82/comorbidity4j</a>    
   
   
-**Comorbidity4j is distributed under the terms defined by the <a href="https://github.com/fra82/comorbidity4j" target="_blank">GNU AFFERO GENERAL PUBLIC LICENSE (Version 3, 19 November 2007)</a>.**  
+**Comorbidity4j is distributed under the terms defined by the <a href="https://github.com/fra82/comorbidity4j/blob/master/LICENSE" target="_blank">GNU AFFERO GENERAL PUBLIC LICENSE (Version 3, 19 November 2007)</a>.**  
   
   
     
