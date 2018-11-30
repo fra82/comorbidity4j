@@ -1,5 +1,5 @@
 ![Comorbidity4j](/img/logo.png)
-<h1>Configuration of comorbidity analysis parameters</h1>
+<h1>Diagnosis grouping and pairing</h1>
   
 Once connected by means of a Web browser to Comorbidity4j (to a locally running server to to <a href="http://comorbidity.eu/comorbidity4web/" target="_blank">http://comorbidity.eu/comorbidity4web/</a>) and interactively uploaded / validated the input data, **Comorbidity4j web application drives the user throughout the interactive setting of the diagnosis grouping and pairing**. These steps are optional and can be skipped.   
   

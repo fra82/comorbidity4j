@@ -107,11 +107,9 @@ public class ComorbidityLoaderThread implements Callable<Map<Integer, TIntSet>> 
 					}
 				}
 				
-				/** MP **/
 				if(numPatientWithDisAandB_Set_ALL.size() < 1) {
 					continue;
 				}
-				
 				
 				if(pairConsidered_preproc.get() % 700000 == 0) {
 					System.out.println(" *** > Selected " + pairSelected_preproc.get() + " pairs over " + pairConsidered_preproc.get() + " pairs considered...");

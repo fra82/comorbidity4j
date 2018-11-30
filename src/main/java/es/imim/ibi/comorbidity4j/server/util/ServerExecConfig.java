@@ -2,7 +2,7 @@ package es.imim.ibi.comorbidity4j.server.util;
 
 public class ServerExecConfig {
 	
-	public static boolean isOnline = true;
+	public static boolean isOnline = false;
 	
 	public static long maxMbSizePatientDataFile = -1l;
 	public static long maxNumberOfPatients = -1l;

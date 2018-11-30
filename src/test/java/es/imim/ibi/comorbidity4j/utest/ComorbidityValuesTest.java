@@ -3,6 +3,8 @@ package es.imim.ibi.comorbidity4j.utest;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Collection;
@@ -43,10 +45,20 @@ public class ComorbidityValuesTest {
 		synthea1kDataset.setOddsRatioConfindeceInterval_p(0.95d);
 
 		// 3) Execute comorbidity analysis
+		PrintStream out = System.out;
+		PrintStream err = System.out;
+		System.setOut(new PrintStream(new OutputStream() {
+		    @Override public void write(int b) throws IOException {}
+		}));
+		System.setErr(new PrintStream(new OutputStream() {
+		    @Override public void write(int b) throws IOException {}
+		}));
 		ComputeComorbidityServlet servletClass = new ComputeComorbidityServlet();
 		Triple<ImmutablePair<String, Collection<ComorbidityPairResult>>, ImmutablePair<String, Collection<ComorbidityPairResult>>, ImmutablePair<String, Collection<ComorbidityPairResult>>> results = servletClass.executeAnalysis(null, synthea1kDataset, "TEST_1",
 				null, null, null, null, null, null);
-
+		System.setOut(out);
+		System.setErr(err);
+		
 		// Get the results of the gender-independent and gender-dependent comorbidity analyses
 		ImmutablePair<String, Collection<ComorbidityPairResult>> resultPairAnalysisMap_ALL = results.getLeft();
 		ImmutablePair<String, Collection<ComorbidityPairResult>> resultPairAnalysisMap_FEMALE = results.getMiddle();
@@ -60,6 +72,9 @@ public class ComorbidityValuesTest {
 
 		// 5) Assertion to check
 		SoftAssertions softAssertions = new SoftAssertions();
+
+		int counterOfDiseasePairsTested = 0;
+		int counterOfDiseasePairsWithErrors = 0;
 
 		CSVReader reader = null;
 		try {
@@ -84,7 +99,7 @@ public class ComorbidityValuesTest {
 						if((cpr.getDisAcode().equals(diseaseAcode) && cpr.getDisBcode().equals(diseaseBcode)) ||
 								(cpr.getDisAcode().equals(diseaseBcode) && cpr.getDisBcode().equals(diseaseAcode))) {
 
-							System.out.println("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode);
+							counterOfDiseasePairsTested++;
 
 							if(NumberUtils.isNumber(disA) && NumberUtils.isNumber(disB)) {
 								softAssertions.assertThat((cpr.getPatWdisA().intValue() == Integer.valueOf(disA).intValue()) || (cpr.getPatWdisA().intValue() == Integer.valueOf(disB).intValue())).
@@ -116,15 +131,17 @@ public class ComorbidityValuesTest {
 								overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + " > Error getPatWOdisAB: "  + cpr.getPatWOdisAB().intValue() + " >>> " + notAnotB).isTrue();
 							}
 
-
-
-							int countErrors = 0;
-							for(Throwable saErr : softAssertions.errorsCollected()) {
-								System.out.println(++countErrors + " > " + saErr.getMessage());
+							if(softAssertions.errorsCollected().size() > 0) {
+								System.out.println("> TEST errors while analyzing diagnosis pair: (" + diseaseAcode + " / " + diseaseBcode + ")");
+								int countErrors = 0;
+								counterOfDiseasePairsWithErrors++;
+								for(Throwable saErr : softAssertions.errorsCollected()) {
+									System.out.println("       > ERROR NUMBER: " + ++countErrors + " > " + saErr.getMessage());
+								}
 							}
-
-							if(countErrors == 0) {
-								System.out.println("Skipped diseases: " + diseaseAcode + " / " + diseaseBcode);
+							else {
+								// System.out.println("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode);
+								// System.out.println("   >>> CORRECT VALUES <<<");
 							}
 
 							softAssertions = new SoftAssertions();
@@ -139,10 +156,16 @@ public class ComorbidityValuesTest {
 			e.printStackTrace();
 		}
 
-		int countErrors = 0;
-		for(Throwable saErr : softAssertions.errorsCollected()) {
-			System.out.println(++countErrors + " > " + saErr.getMessage());
+		System.out.println("\n************************************************************");
+		System.out.println("************ NUMBER OF PATIENTS COMPUTATION TEST ***********");
+		if(counterOfDiseasePairsWithErrors == 0) {
+			System.out.println(" > No errors have been spotted by testing the patient count result of " + counterOfDiseasePairsTested + " diagnosis pairs considered.");
 		}
+		else {
+			System.out.println(" > ATTENTION: there are patient count result errors affecting " + counterOfDiseasePairsWithErrors + " diagnosis pairs over a total of " + counterOfDiseasePairsTested + " diagnosis pairs diagnosis.");
+		}
+		System.out.println("************************************************************\n");
+
 	}
 
 
@@ -163,14 +186,24 @@ public class ComorbidityValuesTest {
 		synthea1kDataset.setOddsRatioConfindeceInterval_p(0.95d);
 
 		// 3) Execute comorbidity analysis
+		PrintStream out = System.out;
+		PrintStream err = System.out;
+		System.setOut(new PrintStream(new OutputStream() {
+		    @Override public void write(int b) throws IOException {}
+		}));
+		System.setErr(new PrintStream(new OutputStream() {
+		    @Override public void write(int b) throws IOException {}
+		}));
 		ComputeComorbidityServlet servletClass = new ComputeComorbidityServlet();
 		Triple<ImmutablePair<String, Collection<ComorbidityPairResult>>, ImmutablePair<String, Collection<ComorbidityPairResult>>, ImmutablePair<String, Collection<ComorbidityPairResult>>> results = servletClass.executeAnalysis(null, synthea1kDataset, "TEST_1",
 				null, null, null, null, null, null);
-
+		System.setOut(out);
+		System.setErr(err);
+		
 		// Get the results of the gender-independent and gender-dependent comorbidity analyses
 		ImmutablePair<String, Collection<ComorbidityPairResult>> resultPairAnalysisMap_ALL = results.getLeft();
-		ImmutablePair<String, Collection<ComorbidityPairResult>> resultPairAnalysisMap_FEMALE = results.getMiddle();
-		ImmutablePair<String, Collection<ComorbidityPairResult>> resultPairAnalysisMap_MALE = results.getRight();
+		// ImmutablePair<String, Collection<ComorbidityPairResult>> resultPairAnalysisMap_FEMALE = results.getMiddle();
+		// ImmutablePair<String, Collection<ComorbidityPairResult>> resultPairAnalysisMap_MALE = results.getRight();
 
 		// 4) Load reference values
 		ClassLoader classLoader = getClass().getClassLoader();
@@ -180,6 +213,9 @@ public class ComorbidityValuesTest {
 
 		// 5) Assertion to check
 		SoftAssertions softAssertions = new SoftAssertions();
+
+		int counterOfDiseasePairsTested = 0;
+		int counterOfDiseasePairsWithErrors = 0;
 
 		CSVReader reader = null;
 		try {
@@ -208,7 +244,7 @@ public class ComorbidityValuesTest {
 					String score = row[15];
 
 					DecimalFormat df = new DecimalFormat("#.000");
-					df.setRoundingMode(RoundingMode.HALF_EVEN);
+					df.setRoundingMode(RoundingMode.HALF_DOWN);
 
 					for(ComorbidityPairResult cpr : resultPairAnalysisMap_ALL.getRight()) {
 						if((cpr.getDisAcode().equals(diseaseAcode) && cpr.getDisBcode().equals(diseaseBcode)) ||
@@ -232,59 +268,92 @@ public class ComorbidityValuesTest {
 							softAssertions.assertThat(cpr.getPatWOdisAB().intValue() == Integer.valueOf(notAnotB).intValue()).
 							overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + " > Error getPatWOdisAB: "  + cpr.getPatWOdisAB().intValue() + " >>> " + notAnotB).isTrue();
 
-							if(softAssertions.errorsCollected().size() == 0) {
+							// if(softAssertions.errorsCollected().size() == 0) {
 
-								System.out.println("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode);
+							counterOfDiseasePairsTested++;
 
-								if(NumberUtils.isNumber(fisher)) {
-									softAssertions.assertThat( df.format(cpr.getFisherTest()).equals(df.format(Double.valueOf(fisher))) ).
-									overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
-											" > Error getFisherTest: "  + df.format(cpr.getFisherTest()) + " (" + cpr.getFisherTest() + ") >>> " + df.format(Double.valueOf(fisher)) + " (" + fisher + ")").isTrue();
-								}
+							// System.out.println("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode);
 
-								if(NumberUtils.isNumber(score)) {
-									softAssertions.assertThat( df.format(cpr.getScore()).equals(df.format(Double.valueOf(score))) ).
-									overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
-											" > Error getScore: "  + df.format(cpr.getScore()) + " (" + cpr.getScore() + ") >>> " + df.format(Double.valueOf(score)) + " (" + score + ")").isTrue();
-								}
+							if(NumberUtils.isNumber(fisher)) {
+								double firstValue = Double.valueOf(df.format(cpr.getFisherTest()));
+								double secondValue = Double.valueOf(df.format(Double.valueOf(fisher)));
+								double absDiff = Math.abs(firstValue - secondValue);
+								
+								softAssertions.assertThat( absDiff <= 0.0011d ).
+								overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
+										" > Error getFisherTest: "  + df.format(cpr.getFisherTest()) + " (" + cpr.getFisherTest() + ") >>> " + df.format(Double.valueOf(fisher)) + " (" + fisher + ")").isTrue();
+							}
 
-								if(NumberUtils.isNumber(oddsRatio)) {
-									softAssertions.assertThat( df.format(cpr.getOddsRatioIndex()).equals(df.format(Double.valueOf(oddsRatio))) ).
-									overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
-											" > Error getOddsRatioIndex: "  + df.format(cpr.getOddsRatioIndex()) + " (" + cpr.getOddsRatioIndex() + ") >>> " + df.format(Double.valueOf(oddsRatio)) + " (" + oddsRatio + ")").isTrue();
-								}
+							if(NumberUtils.isNumber(score)) {
+								double firstValue = Double.valueOf(df.format(cpr.getScore()));
+								double secondValue = Double.valueOf(df.format(Double.valueOf(score)));
+								double absDiff = Math.abs(firstValue - secondValue);
+								
+								softAssertions.assertThat( absDiff <= 0.0011d ).
+								overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
+										" > Error getScore: "  + df.format(cpr.getScore()) + " (" + cpr.getScore() + ") >>> " + df.format(Double.valueOf(score)) + " (" + score + ")").isTrue();
+							}
 
-								if(NumberUtils.isNumber(relativeRisk)) {
-									softAssertions.assertThat( df.format(cpr.getRelativeRiskIndex()).equals(df.format(Double.valueOf(relativeRisk))) ).
-									overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
-											" > Error getRelativeRiskIndex: "  + df.format(cpr.getRelativeRiskIndex()) + " (" + cpr.getRelativeRiskIndex() + ") >>> " + df.format(Double.valueOf(relativeRisk)) + " (" + relativeRisk + ")").isTrue();
-								}
+							if(NumberUtils.isNumber(oddsRatio)) {
+								double firstValue = Double.valueOf(df.format(cpr.getOddsRatioIndex()));
+								double secondValue = Double.valueOf(df.format(Double.valueOf(oddsRatio)));
+								double absDiff = Math.abs(firstValue - secondValue);
+								
+								softAssertions.assertThat( absDiff <= 0.0011d ).
+								overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
+										" > Error getOddsRatioIndex: "  + df.format(cpr.getOddsRatioIndex()) + " (" + cpr.getOddsRatioIndex() + ") >>> " + df.format(Double.valueOf(oddsRatio)) + " (" + oddsRatio + ")").isTrue();
+							}
 
-								if(NumberUtils.isNumber(phi)) {
-									softAssertions.assertThat( df.format(cpr.getPhiIndex()).equals(df.format(Double.valueOf(phi))) ).
-									overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
-											" > Error getPhiIndex: "  + df.format(cpr.getPhiIndex()) + " (" + cpr.getPhiIndex() + ") >>> " + df.format(Double.valueOf(phi)) + " (" + phi + ")").isTrue();
-								}
+							if(NumberUtils.isNumber(relativeRisk)) {
+								double firstValue = Double.valueOf(df.format(cpr.getRelativeRiskIndex()));
+								double secondValue = Double.valueOf(df.format(Double.valueOf(relativeRisk)));
+								double absDiff = Math.abs(firstValue - secondValue);
+								
+								softAssertions.assertThat( absDiff <= 0.0011d ).
+								overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
+										" > Error getRelativeRiskIndex: "  + df.format(cpr.getRelativeRiskIndex()) + " (" + cpr.getRelativeRiskIndex() + ") >>> " + df.format(Double.valueOf(relativeRisk)) + " (" + relativeRisk + ")").isTrue();
+							}
 
-								if(NumberUtils.isNumber(expect)) {
-									softAssertions.assertThat( df.format(cpr.getExpect()).equals(df.format(Double.valueOf(expect))) ).
-									overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
-											" > Error getExpect: "  + df.format(cpr.getExpect()) + " (" + cpr.getExpect() + ") >>> " + df.format(Double.valueOf(expect)) + " (" + expect + ")").isTrue();
-								}
+							if(NumberUtils.isNumber(phi)) {
+								double firstValue = Double.valueOf(df.format(cpr.getPhiIndex()));
+								double secondValue = Double.valueOf(df.format(Double.valueOf(phi)));
+								double absDiff = Math.abs(firstValue - secondValue);
+								
+								softAssertions.assertThat( absDiff <= 0.0011d ).
+								overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
+										" > Error getPhiIndex: "  + df.format(cpr.getPhiIndex()) + " (" + cpr.getPhiIndex() + ") >>> " + df.format(Double.valueOf(phi)) + " (" + phi + ")").isTrue();
+							}
+
+							if(NumberUtils.isNumber(expect)) {
+								double firstValue = Double.valueOf(df.format(cpr.getExpect()));
+								double secondValue = Double.valueOf(df.format(Double.valueOf(expect)));
+								double absDiff = Math.abs(firstValue - secondValue);
+								
+								softAssertions.assertThat( absDiff <= 0.0011d ).
+								overridingErrorMessage("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode + 
+										" > Error getExpect: "  + df.format(cpr.getExpect()) + " (" + cpr.getExpect() + ") >>> " + df.format(Double.valueOf(expect)) + " (" + expect + ")").isTrue();
+							}
 
 
+							if(softAssertions.errorsCollected().size() > 0) {
+								System.out.println("> TEST errors while analyzing diagnosis pair: (" + diseaseAcode + " / " + diseaseBcode + ")");
 								int countErrors = 0;
+								counterOfDiseasePairsWithErrors++;
 								for(Throwable saErr : softAssertions.errorsCollected()) {
-									System.out.println(++countErrors + " > " + saErr.getMessage());
+									System.out.println("       > ERROR NUMBER: " + ++countErrors + " > " + saErr.getMessage());
 								}
+							}
+							else {
+								// System.out.println("Analyzing diseases: " + diseaseAcode + " / " + diseaseBcode);
+								// System.out.println("   >>> CORRECT VALUES <<<");
+							}
 
-								if(countErrors == 0) { 
-									System.out.println("   >>> CORRECT VALUES <<<");
-								}
+							/*
 							}
 							else {
 								System.out.println("Skipped diseases: " + diseaseAcode + " / " + diseaseBcode);
 							}
+							 */
 
 							softAssertions = new SoftAssertions();
 
@@ -299,10 +368,15 @@ public class ComorbidityValuesTest {
 			e.printStackTrace();
 		}
 
-		int countErrors = 0;
-		for(Throwable saErr : softAssertions.errorsCollected()) {
-			System.out.println(++countErrors + " > " + saErr.getMessage());
+		System.out.println("\n************************************************************");
+		System.out.println("************ COMORBIDITY SCORES COMPUTATION TEST *************");
+		if(counterOfDiseasePairsWithErrors == 0) {
+			System.out.println(" > No errors have been spotted by testing the comorbidity analysis result of " + counterOfDiseasePairsTested + " diagnosis pairs considered.");
 		}
+		else {
+			System.out.println(" > ATTENTION: there are comorbidity analysis result errors affecting " + counterOfDiseasePairsWithErrors + " diagnosis pairs over a total of " + counterOfDiseasePairsTested + " diagnosis pairs diagnosis.");
+		}
+		System.out.println("************************************************************\n");
 	}
 
 

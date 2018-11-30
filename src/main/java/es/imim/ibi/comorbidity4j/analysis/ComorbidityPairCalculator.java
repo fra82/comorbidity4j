@@ -332,7 +332,7 @@ public class ComorbidityPairCalculator {
 			}
 			
 			// 7) Comorbidity Sex Ratio
-			/** MP *
+			/** MP 
 			comPairResult.setFemaleWithDisA(0);
 			comPairResult.setFemaleWithDisB(0);
 			comPairResult.setFemaleWithDisAandB(0);
@@ -341,7 +341,7 @@ public class ComorbidityPairCalculator {
 			comPairResult.setMaleWithDisAandB(0);
 			comPairResult.setSexRatioAB(0d);
 			comPairResult.setSexRatioBA(0d);
-			*/
+			**/
 			computeSexRatio(diseaseA_ID, diseaseB_ID, comMiner, computationCache, comPairResult, femalePatFilter, malePatFilter);
 			
 			
