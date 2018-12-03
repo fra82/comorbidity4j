@@ -26,7 +26,7 @@ The following table summarizes relevant descriptive features of each benchmark d
 ## Results of performance comparison
   
   
-We benchmarked Comorbidity4j against <a href="https://bitbucket.org/ibi\_group/comorbidity" target="_blank">comoRbidity</a> [1], a publicly available R tool that supports comorbidity analyses of clinical data.  
+We benchmarked Comorbidity4j against <a href="https://bitbucket.org/ibi_group/comorbidity" target="_blank">comoRbidity</a> [1], a publicly available R tool that supports comorbidity analyses of clinical data.  
 
 The following table shows the results of the comparison of Comorbidity4j (C4J) with comoRbidity (comoR) with respect to the four clinical dataset previously introduced. In particular, the third column specifies if we took into account (YES, 14 days) or not (NO) diagnosis directionality in the comorbidity analysis. If directionality is considered, two diagnosis of diseases should be interleaved by 14 days or more to be considered in the analysis of comorbidities. The last column provides an estimation of the peak RAM required during the data analysis: this value should be considered as an estimation since could be affected by several non deterministic factors.  
   
