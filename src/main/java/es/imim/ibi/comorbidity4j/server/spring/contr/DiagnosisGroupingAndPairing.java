@@ -1,6 +1,5 @@
 package es.imim.ibi.comorbidity4j.server.spring.contr;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
@@ -15,9 +14,8 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

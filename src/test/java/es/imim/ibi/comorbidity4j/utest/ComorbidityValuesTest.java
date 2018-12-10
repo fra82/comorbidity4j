@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Collection;
 
-import org.apache.commons.lang.math.NumberUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Triple;
 import org.apache.logging.log4j.util.Strings;
