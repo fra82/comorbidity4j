@@ -1353,6 +1353,7 @@ public class TemplateUtils {
 		// input.put("visitCountByDiseaseAndSexOnlyIndexDataset", generateDatasetStats_VisitCountDiseasesByFacet(currentExecutor, true, true));
 		// input.put("visitCountByDiseaseAndClassificationOnlyIndexDataset", generateDatasetStats_VisitCountDiseasesByFacet(currentExecutor, false, true));
 		
+		input.put("RRconfidenceInterval", currentExecutor.getRelativeRiskConfindeceInterval() + "");
 		input.put("ORconfidenceInterval", currentExecutor.getOddsRatioConfindeceInterval() + "");
 		
 		// Print log messages and data loading messages

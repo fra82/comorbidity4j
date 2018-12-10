@@ -611,6 +611,7 @@ public class DiagnosisGroupingAndPairing extends BaseController {
 		// Summary of grouping and pairing
 		model.put("patientAgeComputation", so.getPatientAgeComputation_p() != null ? so.getPatientAgeComputation_p() : "-");
 		model.put("pvalAdjApproach", so.getPvalAdjApproach_p() != null ? so.getPvalAdjApproach_p() : "-");
+		model.put("RRconfidenceInterval", so.getRelativeRiskConfindeceInterval_p() != null ? so.getRelativeRiskConfindeceInterval_p() : "-");
 		model.put("ORconfidenceInterval", so.getOddsRatioConfindeceInterval_p() != null ? so.getOddsRatioConfindeceInterval_p() : "-");
 		model.put("isGenderEnabled", so.isGenderEnabled() + "");
 		if(so.isGenderEnabled()) {
@@ -902,6 +903,27 @@ public class DiagnosisGroupingAndPairing extends BaseController {
 			}
 			else {
 				errorMessage += "Incorrect value for the comorbidity minimum number of patients filter.<br/>";
+			}
+		}
+		
+		String relativeRiskConfidenceInterval = request.getParameter("relativeRiskConfidenceInterval");
+		if(relativeRiskConfidenceInterval == null) {
+			errorMessage += "Please, specify a correct confidence interval to compute the relative risk in ]0;1[.<br/>";
+		}
+		else {
+			Double relativeRiskoConfidenceIntervalDouble = null;
+			try {
+				relativeRiskoConfidenceIntervalDouble = Double.valueOf(relativeRiskConfidenceInterval);
+			}
+			catch(Exception e) {
+				errorMessage += "Please, specify a correct confidence interval to compute the relative risk in ]0;1[.<br/>";
+			}
+
+			if(relativeRiskoConfidenceIntervalDouble <= 0d || relativeRiskoConfidenceIntervalDouble >= 1d) {
+				errorMessage += "Please, specify a correct confidence interval to compute the relative risk in ]0;1[.<br/>";
+			}
+			else {
+				so.setRelativeRiskConfindeceInterval_p(relativeRiskoConfidenceIntervalDouble);
 			}
 		}
 

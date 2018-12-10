@@ -34,9 +34,9 @@ The following columns describing the number of patients experimenting the diseas
 ## Comorbidity scores columns
     
 The following columns provide the comorbidity scores associated the the pair of diseases (see [Comorbidity scores](ComorbidityScoresComputed.md)):  
-    - *Relative Risk Index*  
+    - *Relative Risk Index* (with lower and upper bounds of user-defined confidence interval)  
     - *Phi Index*  
-    - *Odds Ratio Index* (with lower and upper bounds of 95% confidence interval)  
+    - *Odds Ratio Index* (with lower and upper bounds of user-defined confidence interval)  
     - *Fisher Test*  
     - *Fisher Test Adjusted* (by the adjustment approach specified by the  [Comorbidity analysis parameters](ComorbidityAnalysisParametersConfig.md))  
     - *Comorbidity Score*  
@@ -68,8 +68,11 @@ disBcodeNum   disBcode   disBname
 patTotal   patWdisA   patWdisB   patWdisAB   patWdisAnotB   patWdisBnotA   patWOdisAB   
 1095       37         35         10          27             25             1033
   
-relativeRiskIndex   phiIndex   oddsRatioIndex   oddsRatio95CI_upper   oddsRatio95CI_lower   
-8.4556              0.25335    15.3037          34.98843              6.69374                  
+relativeRiskIndex	relativeRiskCI_0.98_lower   relativeRiskCI_0.98_upper   phiIndex   
+8.33205             3.88583                     17.86569                    0.25335 
+
+oddsRatioIndex   oddsRatioCI_0.99_lower   oddsRatioCI_0.99_upper   
+15.3037          6.69374                  34.98843                  
   
 fisherTest   fisherTestAdjusted   expect   score   
 5.48E-08     0.0001938966         1.18265  2.33335

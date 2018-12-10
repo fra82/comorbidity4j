@@ -163,10 +163,12 @@ public class ComorbidityPairCalculator {
 			
 			if(comorbidityScoresCacheMap.containsKey(comorbidityHash) && comorbidityScoresCacheMap.get(comorbidityHash) != null) {
 				comPairResult.setRelativeRiskIndex(comorbidityScoresCacheMap.get(comorbidityHash).getRelativeRiskIndex());
+				comPairResult.setRelativeRiskCIupper(comorbidityScoresCacheMap.get(comorbidityHash).getRelativeRiskCIupper());
+				comPairResult.setRelativeRiskCIlower(comorbidityScoresCacheMap.get(comorbidityHash).getRelativeRiskCIlower());
 				comPairResult.setPhiIndex(comorbidityScoresCacheMap.get(comorbidityHash).getPhiIndex());
 				comPairResult.setOddsRatioIndex(comorbidityScoresCacheMap.get(comorbidityHash).getOddsRatioIndex());
-				comPairResult.setOddsRatio95upper(comorbidityScoresCacheMap.get(comorbidityHash).getOddsRatio95upper());
-				comPairResult.setOddsRatio95lower(comorbidityScoresCacheMap.get(comorbidityHash).getOddsRatio95lower());
+				comPairResult.setOddsRatioCIupper(comorbidityScoresCacheMap.get(comorbidityHash).getOddsRatioCIupper());
+				comPairResult.setOddsRatioCIlower(comorbidityScoresCacheMap.get(comorbidityHash).getOddsRatioCIlower());
 				comPairResult.setFisherTest(comorbidityScoresCacheMap.get(comorbidityHash).getFisherTest());
 				comPairResult.setExpect(comorbidityScoresCacheMap.get(comorbidityHash).getExpect());
 				comPairResult.setScore(comorbidityScoresCacheMap.get(comorbidityHash).getScore());
@@ -191,6 +193,46 @@ public class ComorbidityPairCalculator {
 					logger.error("Exception computing relative risk - " + e.getMessage());
 				}
 				comPairResult.setRelativeRiskIndex(relativeRisk);
+				
+				// 1.1) 95% confidence interval of Relative risk
+				// ci = exp(log(rr) ± Zα/2­*√ (1/a - 1/(a+b) ) + (1/c - 1/(c+d)) - for a confidence level of 95%, α is 0.05 and the critical value is 1.96
+				
+				// Calculate critical value - 1.96 for 95% confidence interval
+				// https://gist.github.com/gcardone/5536578#file-confidenceintervalapp-java
+				TDistribution tDist = new TDistribution(1000000);
+	            double critVal = tDist.inverseCumulativeProbability(1.0 - (1 - comMiner.getRelativeRiskConfindeceInterval()) / 2);
+	            
+				Double relativeRiskCIupper = -10000d;
+				Double relativeRiskCIlower = -10000d;
+				try {
+					if(relativeRisk <= 0d) {
+						relativeRiskCIupper = 0d;
+						relativeRiskCIlower = 0d;
+					}
+					else {
+						// http://sphweb.bumc.bu.edu/otlt/MPH-Modules/QuantCore/PH717_ComparingFrequencies/PH717_ComparingFrequencies8.html
+						// https://www.scalelive.com/relative-risk.html
+						
+						// Step 1: Calculate the natural log of the risk ratio
+						Double logOR = Math.log(relativeRisk);
+						
+						// Step 2: Calculate the standard error of the log(RR)
+						Double SEofLogOR = Math.sqrt(
+								( ((double) 1 / (double) comPairResult.getPatWdisAB()) - ( (double) 1 / (double) (comPairResult.getPatWdisAB() + comPairResult.getPatWdisAnotB()) ) ) + 
+								( ((double) 1 / (double) comPairResult.getPatWdisBnotA()) - ( ((double) 1 / (double) (comPairResult.getPatWOdisAB() + comPairResult.getPatWdisBnotA()) ) ) ) );
+						
+						// Step 3: Calculate the lower and upper confidence bounds on the natural log scale and convert the log limits back to a normal scale for odds ratios by taking the antilog using R.
+						Double interval = critVal * SEofLogOR;
+						relativeRiskCIupper = Math.exp(logOR + interval);
+						relativeRiskCIlower = Math.exp(logOR - interval);
+					}
+				}
+				catch(Exception e) {
+					logger.error("Exception computing relative risk confidence interval - " + e.getMessage());
+				}
+				comPairResult.setRelativeRiskCIupper(relativeRiskCIupper);
+				comPairResult.setRelativeRiskCIlower(relativeRiskCIlower);
+				
 
 				// 2) Phi index computation
 				// >>> R implementation
@@ -246,20 +288,21 @@ public class ComorbidityPairCalculator {
 				
 				// Calculate critical value - 1.96 for 95% confidence interval
 				// https://gist.github.com/gcardone/5536578#file-confidenceintervalapp-java
-				TDistribution tDist = new TDistribution(1000000);
-	            double critVal = tDist.inverseCumulativeProbability(1.0 - (1 - comMiner.getOddsRatioConfindeceInterval()) / 2);
+				tDist = new TDistribution(1000000);
+	            critVal = tDist.inverseCumulativeProbability(1.0 - (1 - comMiner.getOddsRatioConfindeceInterval()) / 2);
 	            
-				Double oddsRatio95upper = -10000d;
-				Double oddsRatio95lower = -10000d;
+				Double oddsRatioCIupper = -10000d;
+				Double oddsRatioCIlower = -10000d;
 				try {
 					if(oddsRatio <= 0d) {
-						oddsRatio95upper = 0d;
-						oddsRatio95lower = 0d;
+						oddsRatioCIupper = 0d;
+						oddsRatioCIlower = 0d;
 					}
 					else {
 						// http://sphweb.bumc.bu.edu/otlt/MPH-Modules/QuantCore/PH717_ComparingFrequencies/PH717_ComparingFrequencies8.html
+						// https://www.scalelive.com/relative-risk.html
 						
-						// Step 1: Calculate the natural log of the risk ratio
+						// Step 1: Calculate the natural log of the odds ratio
 						Double logOR = Math.log(oddsRatio);
 						
 						// Step 2: Calculate the standard error of the log(OR)
@@ -267,15 +310,15 @@ public class ComorbidityPairCalculator {
 						
 						// Step 3: Calculate the lower and upper confidence bounds on the natural log scale and convert the log limits back to a normal scale for odds ratios by taking the antilog using R.
 						Double interval = critVal * SEofLogOR;
-						oddsRatio95upper = Math.exp(logOR + interval);
-						oddsRatio95lower = Math.exp(logOR - interval);
+						oddsRatioCIupper = Math.exp(logOR + interval);
+						oddsRatioCIlower = Math.exp(logOR - interval);
 					}
 				}
 				catch(Exception e) {
-					logger.error("Exception computing odds ratio - " + e.getMessage());
+					logger.error("Exception computing odds ratio confidence interval - " + e.getMessage());
 				}
-				comPairResult.setOddsRatio95upper(oddsRatio95upper);
-				comPairResult.setOddsRatio95lower(oddsRatio95lower);
+				comPairResult.setOddsRatioCIupper(oddsRatioCIupper);
+				comPairResult.setOddsRatioCIlower(oddsRatioCIlower);
 				
 
 				// 4) Exact Fisher Test

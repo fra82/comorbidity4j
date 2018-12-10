@@ -42,6 +42,7 @@ public class ComorbidityValuesTest {
 		synthea1kDataset.setFemaleIdentifier_p("FEMALE");
 		synthea1kDataset.setMaleIdentifier_p("MALE");
 
+		synthea1kDataset.setRelativeRiskConfindeceInterval_p(0.95d);
 		synthea1kDataset.setOddsRatioConfindeceInterval_p(0.95d);
 
 		// 3) Execute comorbidity analysis
@@ -183,6 +184,7 @@ public class ComorbidityValuesTest {
 		synthea1kDataset.setFemaleIdentifier_p("FEMALE");
 		synthea1kDataset.setMaleIdentifier_p("MALE");
 
+		synthea1kDataset.setRelativeRiskConfindeceInterval_p(0.95d);
 		synthea1kDataset.setOddsRatioConfindeceInterval_p(0.95d);
 
 		// 3) Execute comorbidity analysis

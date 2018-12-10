@@ -58,6 +58,7 @@
 	  	<ul>
 	       <li><b>Patient age computation approach (used if the patient age filter is enabled)</b>:&nbsp; ${md.patientAgeComputation!'---'}</li>
 	       <li><b>P-value adjust approach</b>:&nbsp; ${md.pvalAdjApproach!'---'}</li>
+	       <li><b>Relative risko confidence interval</b>:&nbsp; ${md.RRconfidenceInterval!'---'}</li>
 	       <li><b>Odds ratio confidence interval</b>:&nbsp; ${md.ORconfidenceInterval!'---'}</li>
 	       <#if md.isGenderEnabled == "true">
 	  		 <li><b>Female identifier to compute sex ratio value</b>:&nbsp; ${md.sexRatioFemaleIdentifier!'---'}</li>

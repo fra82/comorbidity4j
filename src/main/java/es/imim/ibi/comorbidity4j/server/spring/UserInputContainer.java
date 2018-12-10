@@ -197,6 +197,7 @@ public class UserInputContainer {
 	private String FCOMminPatGreaterLower_p = null;
 	private Integer FCOMminPat_p = null;
 	
+	private Double relativeRiskConfindeceInterval_p = null;
 	private Double oddsRatioConfindeceInterval_p = null;
 	
 	public void resetAnalysisParameters() {
@@ -242,6 +243,7 @@ public class UserInputContainer {
 		FCOMminPatGreaterLower_p = null;
 		FCOMminPat_p = null;
 		
+		relativeRiskConfindeceInterval_p = null;
 		oddsRatioConfindeceInterval_p = null;
 	}
 	
@@ -892,6 +894,14 @@ public class UserInputContainer {
 
 	public void setFCOMminPat_p(Integer fCOMminPat_p) {
 		FCOMminPat_p = fCOMminPat_p;
+	}
+
+	public Double getRelativeRiskConfindeceInterval_p() {
+		return relativeRiskConfindeceInterval_p;
+	}
+
+	public void setRelativeRiskConfindeceInterval_p(Double relativeRiskConfindeceInterval_p) {
+		this.relativeRiskConfindeceInterval_p = relativeRiskConfindeceInterval_p;
 	}
 
 	public Double getOddsRatioConfindeceInterval_p() {

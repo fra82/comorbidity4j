@@ -188,6 +188,7 @@ public class ComorbidityProfiling {
 			artificialDataset.setFemaleIdentifier_p("FEMALE");
 			artificialDataset.setMaleIdentifier_p("MALE");
 
+			artificialDataset.setRelativeRiskConfindeceInterval_p(0.95d);
 			artificialDataset.setOddsRatioConfindeceInterval_p(0.95d);
 
 

@@ -1,7 +1,7 @@
 ![Comorbidity4j](/img/logo.png)
 <h3>Open-source Java tool to analyze comorbidities over large datasets of patients</h3>
 
-**Latest version: 3.0**
+**Latest version: 3.1**
   
 Comorbidity4j is an Open-source java tool tailored to easily perform <a href="https://en.wikipedia.org/wiki/Comorbidity" target="_blank">comorbidity analyses</a>, thus **supporting the analysis of significant cooccurrences of diseases over large datasets of patient data**.  
 
@@ -25,7 +25,7 @@ Comorbidity analyses can be executed:
     
 **Core features**:    
   
-+ computation of the following **comorbidity scores**: Relative Risk Index, Odds Ratio (with user-defined confidence interval), Phi Index, Comorbidity Score, Fisher Test (see: [Comorbidity scores](ComorbidityScoresComputed.md))  
++ computation of the following **comorbidity scores**: Relative Risk Index (with user-defined confidence interval), Odds Ratio (with user-defined confidence interval), Phi Index, Comorbidity Score, Fisher Test (see: [Comorbidity scores](ComorbidityScoresComputed.md))  
 + **customization of p-value adjustment approach** by choosing one of the following methodologies: BONFERRONI, BENJAMINI-HOCHBERG, HOLM, HOCHBERG, BENJAMINI-YEKUTIELI, HOMMEL (see: [Comorbidity scores](ComorbidityScoresComputed.md))  
 + **sex ratio analysis** to evaluate if a comorbidity suffered in both, men and women, is equally likely in both sex or if it is more likely in one sex than in another  
 + support for **time directionality** in the analysis of disease pairs  

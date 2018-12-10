@@ -36,6 +36,7 @@ var heatmapLayoutSR = {
 };
 </#if>
 
+var RRconfidenceInterval = "${RRconfidenceInterval!'-'}";
 var ORconfidenceInterval = "${ORconfidenceInterval!'-'}";
 
 /* TABLE DATA */
@@ -52,10 +53,12 @@ var columnList = [ //Define Table Columns
 	{title:"BnotA Pts", field:"patWdisBnotA", width:100, align:"left", sorter:"number", headerTooltip:"Total number of patients with Disease B and NOT Disease A"},
 	{title:"notAB Pts", field:"patWOdisAB", width:100, align:"left", sorter:"number", headerTooltip:"Total number of patients with NOT Disease A and NOT Disease B"},
 	{title:"Rel Risk", field:"relativeRiskIndex", width:100, align:"left", sorter:"number", headerTooltip:"Relative risk"},
+	{title:"RR " + RRconfidenceInterval + " CI lower", field:"relativeRiskCI_lower", width:100, align:"left", sorter:"number", headerTooltip: RRconfidenceInterval + " Confidence Interval of Relative Risk - Lower bound"},
+	{title:"RR " + RRconfidenceInterval + " CI upper", field:"relativeRiskCI_upper", width:100, align:"left", sorter:"number", headerTooltip: RRconfidenceInterval + " Confidence Interval of Relative Risk - Upper bound"},
 	{title:"Phi", field:"phiIndex", width:100, align:"left", sorter:"number", headerTooltip:"Phi"},
 	{title:"Odds Ratio", field:"oddsRatioIndex", width:100, align:"left", sorter:"number", headerTooltip:"Odds ration (OR)"},
-	{title:"OR " + ORconfidenceInterval + " CI upper", field:"oddsRatio95CI_upper", width:100, align:"left", sorter:"number", headerTooltip: ORconfidenceInterval + " Confidence Interval of Relative Risk - Lower bound"},
-	{title:"OR " + ORconfidenceInterval + " CI lower", field:"oddsRatio95CI_lower", width:100, align:"left", sorter:"number", headerTooltip: ORconfidenceInterval + " Confidence Interval of Relative Risk - Upper bound"},
+	{title:"OR " + ORconfidenceInterval + " CI lower", field:"oddsRatioCI_lower", width:100, align:"left", sorter:"number", headerTooltip: ORconfidenceInterval + " Confidence Interval of Odds Ratio - Lower bound"},
+	{title:"OR " + ORconfidenceInterval + " CI upper", field:"oddsRatioCI_upper", width:100, align:"left", sorter:"number", headerTooltip: ORconfidenceInterval + " Confidence Interval of Odds Ratio - Upper bound"},
 	{title:"P-value", field:"fisherTest", width:100, align:"left", sorter:"number", headerTooltip:"Fisher test p-value"},
 	{title:"${executorObj.pvalAdjApproach!'---'} adj. p-value", field:"fisherTestAdjusted", width:100, align:"left", sorter:"number", headerTooltip:"Adjusted p-value with approach: ${executorObj.pvalAdjApproach!'---'}"},
 	{title:"Expect", field:"expect", width:100, align:"left", sorter:"number", headerTooltip:"Expectation"},
@@ -2032,6 +2035,7 @@ $(document).ready(function() {
 	       <li><b>Enable multithreading</b>:&nbsp; ${executorObj.getNumThreads()?c!'---'}</li>
 	       <li><b>Patient age computation approach (used if the patient age filter is enabled)</b>:&nbsp; ${executorObj.patientAgeComputation!'---'}</li>
 	       <li><b>P-value adjust approach</b>:&nbsp; ${executorObj.pvalAdjApproach!'---'}</li>
+	       <li><b>Relative risk confidence interval</b>:&nbsp; ${RRconfidenceInterval!'---'}</li>
 	       <li><b>Odds ratio confidence interval</b>:&nbsp; ${ORconfidenceInterval!'---'}</li>
 	       <#if isGenderEnabled == "true">
 	  		 <li><b>Female identifier to compute sex ratio value</b>:&nbsp; ${executorObj.sexRatioFemaleIdentifier!'---'}</li>

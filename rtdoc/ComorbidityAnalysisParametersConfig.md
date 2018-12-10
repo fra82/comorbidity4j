@@ -14,6 +14,7 @@ The following set of parameters can be specified:
     - *LAST_DIAGNOSTIC*: the age of the patient at the moment (date) of the last visit with at least one diagnosis associated (with diagnosis code present among the diagnosis codes considered for comorbidity analysis)  
     - *EXECUTION_TIME*: the age of the patient at execution time  
 + one of **p-value adjustment approach** can be chosen to adjust p-value in case of multiple testing (for more information refer to the R method <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html" target="_blank">p.adjust</a>).  
++ the **relative risk confidence interval**.  
 + the **odds ratio confidence interval**.  
 + the **patient filters** to select the patients that will be considered in the comorbidity analysis by age and other facets.  
 + the **comorbidity score filters** to select the pairs that will be included in the results of the comorbidity analysis by their [comorbidity scores](ComorbidityScoresComputed.md).  

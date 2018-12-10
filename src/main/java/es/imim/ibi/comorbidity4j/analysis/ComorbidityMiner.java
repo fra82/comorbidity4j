@@ -78,6 +78,7 @@ public class ComorbidityMiner {
 	private ComorbidityScoreFilter scoreFilter = null;
 	private ComorbidityDirectionalityFilter directionalityFilter = null;
 
+	private Double relativeRiskConfindeceInterval = null;
 	private Double oddsRatioConfindeceInterval = null;
 
 	// Data loading vars
@@ -243,6 +244,14 @@ public class ComorbidityMiner {
 	public void setDirectionalityFilter(ComorbidityDirectionalityFilter directionalityFilter) {
 		this.directionalityFilter = directionalityFilter;
 	}
+	
+	public Double getRelativeRiskConfindeceInterval() {
+		return relativeRiskConfindeceInterval;
+	}
+
+	public void setRelativeRiskConfindeceInterval(Double relativeRiskConfindeceInterval) {
+		this.relativeRiskConfindeceInterval = relativeRiskConfindeceInterval;
+	}
 
 	public Double getOddsRatioConfindeceInterval() {
 		return oddsRatioConfindeceInterval;
@@ -404,7 +413,8 @@ public class ComorbidityMiner {
 				"\n sexRatioMaleIdentifier=" + ((sexRatioMaleIdentifier != null) ? sexRatioMaleIdentifier : "null") +
 				"\n patientFilter=" + ((patientFilter != null) ? patientFilter : "null") + 
 				"\n scoreFilter=" + ((scoreFilter != null) ? scoreFilter : "null") + 
-				"\n directionalityFilter=" + ((directionalityFilter != null) ? directionalityFilter : "null") + 
+				"\n directionalityFilter=" + ((directionalityFilter != null) ? directionalityFilter : "null") +
+				"\n relativeRiskConfindeceInterval=" + ((relativeRiskConfindeceInterval != null) ? relativeRiskConfindeceInterval : "null") + 
 				"\n oddsRatioConfindeceInterval=" + ((oddsRatioConfindeceInterval != null) ? oddsRatioConfindeceInterval : "null") + 
 				"\n patientListSize=" + ((patientList != null) ? patientList.size() : "null") + 
 				"\n visitList=" + ((visitList != null) ? visitList.size() : "null") +

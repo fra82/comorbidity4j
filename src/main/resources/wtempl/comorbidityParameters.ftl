@@ -403,9 +403,15 @@
 		</div>
 		
 		<div class="sendFormElemGroup">
+			<b>Relative risk confidence interval</b>:&nbsp;
+			<input name="relativeRiskConfidenceInterval" type="text" id="relativeRiskConfidenceIntervalID" value="0.95" 
+			data-validation-help="[float: > 0 and < 1]" data-validation="number" data-validation-allowing="float,range[0;1]" data-validation-optional="false"/>
+		</div>
+		
+		<div class="sendFormElemGroup">
 			<b>Odds ratio confidence interval</b>:&nbsp;
 			<input name="oddsRatioConfidenceInterval" type="text" id="oddsRatioConfidenceIntervalID" value="0.95" 
-			data-validation-help="[floar: > 0 and < 1]" data-validation="number" data-validation-allowing="float,range[0;1]" data-validation-optional="false"/>
+			data-validation-help="[float: > 0 and < 1]" data-validation="number" data-validation-allowing="float,range[0;1]" data-validation-optional="false"/>
 		</div>
 		
 		

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.math.RoundingMode;
 import java.nio.channels.Channels;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -78,6 +79,12 @@ public class ComputeComorbidityServlet extends HttpServlet {
 
 	public static String basePathResultStorage = "/home/ronzano/comorbidity4web/results/"; // Files.createTempDir().getAbsolutePath(); 
 
+	private static DecimalFormat decimFormatThreeDec = new DecimalFormat("#######0.000");
+	
+	static {
+		decimFormatThreeDec.setRoundingMode(RoundingMode.HALF_DOWN);
+	}
+	
 	public void init() throws ServletException {
 
 	}
@@ -334,7 +341,8 @@ public class ComputeComorbidityServlet extends HttpServlet {
 			currentExecutor.setPatientFilter(so.getPatientFilter());
 			currentExecutor.setScoreFilter(so.getComorbidityScoreFilter());
 			currentExecutor.setDirectionalityFilter(so.getComorbidityDirectionalityFilter());
-
+			
+			currentExecutor.setRelativeRiskConfindeceInterval(so.getRelativeRiskConfindeceInterval_p());
 			currentExecutor.setOddsRatioConfindeceInterval(so.getOddsRatioConfindeceInterval_p());
 
 			String reduceComorbidityAnalysis = "";
@@ -676,7 +684,8 @@ public class ComputeComorbidityServlet extends HttpServlet {
 					FileOutputStream outputFileResultsCSVos = new FileOutputStream(outputFileResultsCSV.getAbsoluteFile(), false);
 
 					try(Writer writer = Channels.newWriter(outputFileResultsCSVos.getChannel(), "UTF-8")) {
-						writer.write(ComorbidityPairResult.toCSVlineHeader() + "\n");
+						writer.write(ComorbidityPairResult.toCSVlineHeader(decimFormatThreeDec.format(currentExecutor.getRelativeRiskConfindeceInterval()) ,
+								decimFormatThreeDec.format(currentExecutor.getOddsRatioConfindeceInterval())) + "\n");
 						writer.flush();
 
 						Integer totalLinesToWrite = resultPairAnalysisMap_ALL.getValue().size();
@@ -733,7 +742,8 @@ public class ComputeComorbidityServlet extends HttpServlet {
 						FileOutputStream outputFileResultsCSVos = new FileOutputStream(outputFileResultsCSV.getAbsoluteFile(), false);
 
 						try(Writer writer = Channels.newWriter(outputFileResultsCSVos.getChannel(), "UTF-8")) {
-							writer.write(ComorbidityPairResult.toCSVlineHeader() + "\n");
+							writer.write(ComorbidityPairResult.toCSVlineHeader(decimFormatThreeDec.format(currentExecutor.getRelativeRiskConfindeceInterval()) ,
+									decimFormatThreeDec.format(currentExecutor.getOddsRatioConfindeceInterval())) + "\n");
 							writer.flush();
 
 							Integer totalLinesToWrite = resultPairAnalysisMap_FEMALE.getValue().size();
@@ -787,7 +797,8 @@ public class ComputeComorbidityServlet extends HttpServlet {
 						FileOutputStream outputFileResultsCSVos = new FileOutputStream(outputFileResultsCSV.getAbsoluteFile(), false);
 
 						try(Writer writer = Channels.newWriter(outputFileResultsCSVos.getChannel(), "UTF-8")) {
-							writer.write(ComorbidityPairResult.toCSVlineHeader() + "\n");
+							writer.write(ComorbidityPairResult.toCSVlineHeader(decimFormatThreeDec.format(currentExecutor.getRelativeRiskConfindeceInterval()) ,
+									decimFormatThreeDec.format(currentExecutor.getOddsRatioConfindeceInterval())) + "\n");
 							writer.flush();
 
 							Integer totalLinesToWrite = resultPairAnalysisMap_MALE.getValue().size();

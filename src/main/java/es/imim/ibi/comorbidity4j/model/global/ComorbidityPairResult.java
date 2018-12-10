@@ -37,10 +37,12 @@ public class ComorbidityPairResult {
 	private Integer patWOdisAB;
 
 	private Double relativeRiskIndex;
+	private Double relativeRiskCIlower;
+	private Double relativeRiskCIupper;
 	private Double phiIndex;
 	private Double oddsRatioIndex;
-	private Double oddsRatio95upper;
-	private Double oddsRatio95lower;
+	private Double oddsRatioCIlower;
+	private Double oddsRatioCIupper;
 	private Double fisherTest;
 	private Double fisherTestAdjusted;
 
@@ -182,6 +184,22 @@ public class ComorbidityPairResult {
 		this.relativeRiskIndex = relativeRiskIndex;
 	}
 
+	public Double getRelativeRiskCIupper() {
+		return relativeRiskCIupper;
+	}
+
+	public void setRelativeRiskCIupper(Double relativeRiskCIupper) {
+		this.relativeRiskCIupper = relativeRiskCIupper;
+	}
+
+	public Double getRelativeRiskCIlower() {
+		return relativeRiskCIlower;
+	}
+
+	public void setRelativeRiskCIlower(Double relativeRiskCIlower) {
+		this.relativeRiskCIlower = relativeRiskCIlower;
+	}
+
 	public Double getPhiIndex() {
 		return phiIndex;
 	}
@@ -198,20 +216,20 @@ public class ComorbidityPairResult {
 		this.oddsRatioIndex = oddsRatioIndex;
 	}
 	
-	public Double getOddsRatio95upper() {
-		return oddsRatio95upper;
+	public Double getOddsRatioCIupper() {
+		return oddsRatioCIupper;
 	}
 
-	public void setOddsRatio95upper(Double oddsRatio95upper) {
-		this.oddsRatio95upper = oddsRatio95upper;
+	public void setOddsRatioCIupper(Double oddsRatioCIupper) {
+		this.oddsRatioCIupper = oddsRatioCIupper;
 	}
 
-	public Double getOddsRatio95lower() {
-		return oddsRatio95lower;
+	public Double getOddsRatioCIlower() {
+		return oddsRatioCIlower;
 	}
 
-	public void setOddsRatio95lower(Double oddsRatio95lower) {
-		this.oddsRatio95lower = oddsRatio95lower;
+	public void setOddsRatioCIlower(Double oddsRatioCIlower) {
+		this.oddsRatioCIlower = oddsRatioCIlower;
 	}
 
 	public Double getFisherTest() {
@@ -328,10 +346,12 @@ public class ComorbidityPairResult {
 				", patWdisBnotA=" + ((patWdisBnotA != null) ? patWdisBnotA : "null") + 
 				", patWOdisAB=" + ((patWOdisAB != null) ? patWOdisAB : "null") + 
 				", relativeRiskIndex=" + ((relativeRiskIndex != null) ? relativeRiskIndex : "null") + 
+				", relativeRiskCIlower=" + ((relativeRiskCIlower != null) ? relativeRiskCIlower : "null") + 
+				", relativeRiskCIupper=" + ((relativeRiskCIupper != null) ? relativeRiskCIupper : "null") + 
 				", phiIndex=" + ((phiIndex != null) ? phiIndex : "null") + 
 				", oddsRatioIndex=" + ((oddsRatioIndex != null) ? oddsRatioIndex : "null") + 
-				", oddsRatio95upper=" + ((oddsRatio95upper != null) ? oddsRatio95upper : "null") + 
-				", oddsRatio95lower=" + ((oddsRatio95lower != null) ? oddsRatio95lower : "null") + 
+				", oddsRatioCIlower=" + ((oddsRatioCIlower != null) ? oddsRatioCIlower : "null") + 
+				", oddsRatioCIupper=" + ((oddsRatioCIupper != null) ? oddsRatioCIupper : "null") + 
 				", fisherTest=" + ((fisherTest != null) ? fisherTest : "null") + 
 				", fisherTestAdjusted=" + ((fisherTestAdjusted != null) ? fisherTestAdjusted : "null") +
 				", expect=" + ((expect != null) ? expect : "null") +
@@ -346,7 +366,7 @@ public class ComorbidityPairResult {
 				", sexRatioAB=" + ((sexRatioAB != null) ? sexRatioAB : "null") +"]";
 	}
 
-	public static String toCSVlineHeader() {
+	public static String toCSVlineHeader(String relativeRiskCI, String oddsRationCI) {
 		return "disAcodeNum\t" + 
 				"disAcode\t" + 
 				"disAname\t" +
@@ -361,10 +381,12 @@ public class ComorbidityPairResult {
 				"patWdisBnotA\t" +
 				"patWOdisAB\t" +
 				"relativeRiskIndex\t" +
+				"relativeRiskCI_" + ((!Strings.isNullOrEmpty(relativeRiskCI)) ? relativeRiskCI + "_": "N_") + "lower\t" +
+				"relativeRiskCI_" + ((!Strings.isNullOrEmpty(relativeRiskCI)) ? relativeRiskCI + "_": "N_") + "upper\t" +
 				"phiIndex\t" +
 				"oddsRatioIndex\t" +
-				"oddsRatio95CI_upper\t" +
-				"oddsRatio95CI_lower\t" +
+				"oddsRatioCI_" + ((!Strings.isNullOrEmpty(oddsRationCI)) ? oddsRationCI + "_": "N_") + "lower\t" +
+				"oddsRatioCI_" + ((!Strings.isNullOrEmpty(oddsRationCI)) ? oddsRationCI + "_": "N_") + "upper\t" +
 				"fisherTest\t" +
 				"fisherTestAdjusted\t" +
 				"expect\t" +
@@ -394,10 +416,12 @@ public class ComorbidityPairResult {
 				((patWdisBnotA != null) ? patWdisBnotA : "null") + "\t" + 
 				((patWOdisAB != null) ? patWOdisAB : "null") + "\t" + 
 				((relativeRiskIndex != null) ? decimFormatFiveDec.format(relativeRiskIndex) : "null") + "\t" + 
+				((relativeRiskCIlower != null) ? decimFormatFiveDec.format(relativeRiskCIlower) : "null") + "\t" + 
+				((relativeRiskCIupper != null) ? decimFormatFiveDec.format(relativeRiskCIupper) : "null") + "\t" + 
 				((phiIndex != null) ? decimFormatFiveDec.format(phiIndex) : "null") + "\t" +
 				((oddsRatioIndex != null) ? decimFormatFiveDec.format(oddsRatioIndex) : "null") + "\t" + 
-				((oddsRatio95upper != null) ? decimFormatFiveDec.format(oddsRatio95upper) : "null") + "\t" + 
-				((oddsRatio95lower != null) ? decimFormatFiveDec.format(oddsRatio95lower) : "null") + "\t" + 
+				((oddsRatioCIlower != null) ? decimFormatFiveDec.format(oddsRatioCIlower) : "null") + "\t" + 
+				((oddsRatioCIupper != null) ? decimFormatFiveDec.format(oddsRatioCIupper) : "null") + "\t" + 
 				((fisherTest != null) ? decimFormatTenDec.format(fisherTest) : "null") + "\t" + 
 				((fisherTestAdjusted != null) ? decimFormatTenDec.format(fisherTestAdjusted) : "null") + "\t" +
 				((expect != null) ? decimFormatFiveDec.format(expect) : "null") + "\t" +
@@ -437,23 +461,25 @@ public class ComorbidityPairResult {
 					retPair.setPatWOdisAB(Integer.parseInt(CSVlineSplit[12]));
 					
 					retPair.setRelativeRiskIndex(Double.valueOf(CSVlineSplit[13]));
-					retPair.setPhiIndex(Double.valueOf(CSVlineSplit[14]));
-					retPair.setOddsRatioIndex(Double.valueOf(CSVlineSplit[15]));
-					retPair.setOddsRatio95upper(Double.valueOf(CSVlineSplit[16]));
-					retPair.setOddsRatio95lower(Double.valueOf(CSVlineSplit[17]));
-					retPair.setFisherTest(Double.valueOf(CSVlineSplit[18]));
-					retPair.setFisherTestAdjusted(Double.valueOf(CSVlineSplit[19]));
-					retPair.setExpect(Double.valueOf(CSVlineSplit[20]));
-					retPair.setScore(Double.valueOf(CSVlineSplit[21]));
+					retPair.setRelativeRiskCIlower(Double.valueOf(CSVlineSplit[14]));
+					retPair.setRelativeRiskCIupper(Double.valueOf(CSVlineSplit[15]));
+					retPair.setPhiIndex(Double.valueOf(CSVlineSplit[16]));
+					retPair.setOddsRatioIndex(Double.valueOf(CSVlineSplit[17]));
+					retPair.setOddsRatioCIlower(Double.valueOf(CSVlineSplit[18]));
+					retPair.setOddsRatioCIupper(Double.valueOf(CSVlineSplit[19]));
+					retPair.setFisherTest(Double.valueOf(CSVlineSplit[20]));
+					retPair.setFisherTestAdjusted(Double.valueOf(CSVlineSplit[21]));
+					retPair.setExpect(Double.valueOf(CSVlineSplit[22]));
+					retPair.setScore(Double.valueOf(CSVlineSplit[23]));
 					
-					retPair.setFemaleWithDisA(Integer.valueOf(CSVlineSplit[22]));
-					retPair.setFemaleWithDisB(Integer.valueOf(CSVlineSplit[23]));
-					retPair.setFemaleWithDisAandB(Integer.valueOf(CSVlineSplit[24]));
-					retPair.setMaleWithDisA(Integer.valueOf(CSVlineSplit[25]));
-					retPair.setMaleWithDisB(Integer.valueOf(CSVlineSplit[26]));
-					retPair.setMaleWithDisAandB(Integer.valueOf(CSVlineSplit[27]));					
-					retPair.setSexRatioBA(Double.valueOf(CSVlineSplit[28]));
-					retPair.setSexRatioAB(Double.valueOf(CSVlineSplit[29]));
+					retPair.setFemaleWithDisA(Integer.valueOf(CSVlineSplit[24]));
+					retPair.setFemaleWithDisB(Integer.valueOf(CSVlineSplit[25]));
+					retPair.setFemaleWithDisAandB(Integer.valueOf(CSVlineSplit[26]));
+					retPair.setMaleWithDisA(Integer.valueOf(CSVlineSplit[27]));
+					retPair.setMaleWithDisB(Integer.valueOf(CSVlineSplit[28]));
+					retPair.setMaleWithDisAandB(Integer.valueOf(CSVlineSplit[29]));					
+					retPair.setSexRatioBA(Double.valueOf(CSVlineSplit[30]));
+					retPair.setSexRatioAB(Double.valueOf(CSVlineSplit[31]));
 				}
 				catch(Exception e) {
 					e.printStackTrace();
@@ -503,6 +529,39 @@ public class ComorbidityPairResult {
 			dBcode = dAappoCode;
 			dBcodeName = dAappoName;
 		}
+		
+		String relativeRiskCI_upper = "";
+		if(relativeRiskCIupper != null && Double.isInfinite(relativeRiskCIupper)){
+			relativeRiskCI_upper = decimFormatFiveDec.format(Double.MAX_VALUE - 1d);
+		}
+		else {
+			relativeRiskCI_upper = ((relativeRiskCIupper != null) ? decimFormatFiveDec.format(relativeRiskCIupper) : "null");
+		}
+
+
+		String relativeRiskCI_lower = "";
+		if(relativeRiskCIlower != null && Double.isInfinite(relativeRiskCIlower)){
+			relativeRiskCI_lower = decimFormatFiveDec.format(Double.MAX_VALUE - 1d);
+		}
+		else {
+			relativeRiskCI_lower = ((relativeRiskCIlower != null) ? decimFormatFiveDec.format(relativeRiskCIlower) : "null");
+		}
+		
+		String oddsRatioCI_upper = "";
+		if(oddsRatioCIupper != null && Double.isInfinite(oddsRatioCIupper)){
+			oddsRatioCI_upper = decimFormatFiveDec.format(Double.MAX_VALUE - 1d);
+		}
+		else {
+			oddsRatioCI_upper = ((oddsRatioCIupper != null) ? decimFormatFiveDec.format(oddsRatioCIupper) : "null");
+		}
+		
+		String oddsRatioCI_lower = "";
+		if(oddsRatioCIlower != null && Double.isInfinite(oddsRatioCIlower)){
+			oddsRatioCI_lower = decimFormatFiveDec.format(Double.MAX_VALUE - 1d);
+		}
+		else {
+			oddsRatioCI_lower = ((oddsRatioCIlower != null) ? decimFormatFiveDec.format(oddsRatioCIlower) : "null");
+		}
 
 		return "{" +
 				"'disAcodeNum': " + dAcodeNum + "," +
@@ -519,10 +578,12 @@ public class ComorbidityPairResult {
 				"'patWdisBnotA': " + ((patWdisBnotA != null) ? patWdisBnotA : "null") + "," +
 				"'patWOdisAB': " + ((patWOdisAB != null) ? patWOdisAB : "null") + "," +
 				"'relativeRiskIndex': " + ((relativeRiskIndex != null) ? decimFormatFiveDec.format(relativeRiskIndex) : "null") + "," +
+				"'relativeRiskCI_lower': " + relativeRiskCI_lower + "," +
+				"'relativeRiskCI_upper': " + relativeRiskCI_upper + "," +
 				"'phiIndex': " + ((phiIndex != null) ? decimFormatFiveDec.format(phiIndex) : "null") + "," +
 				"'oddsRatioIndex': " + ((oddsRatioIndex != null) ? decimFormatFiveDec.format(oddsRatioIndex) : "null") + "," +
-				"'oddsRatio95CI_upper': " + ((oddsRatio95upper != null) ? decimFormatFiveDec.format(oddsRatio95upper) : "null") + "," +
-				"'oddsRatio95CI_lower': " + ((oddsRatio95lower != null) ? decimFormatFiveDec.format(oddsRatio95lower) : "null") + "," +
+				"'oddsRatioCI_lower': " + oddsRatioCI_lower + "," +
+				"'oddsRatioCI_upper': " + oddsRatioCI_upper + "," +
 				"'fisherTest': " + ((fisherTest != null) ? decimFormatTenDec.format(fisherTest) : "null") + "," +
 				"'fisherTestAdjusted': " + ((fisherTestAdjusted != null) ? decimFormatTenDec.format(fisherTestAdjusted) : "null") + "," +
 				"'expect': " + ((expect != null) ? decimFormatFiveDec.format(expect) : "null") + "," +
