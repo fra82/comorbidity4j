@@ -165,9 +165,13 @@ public class DiagnosisDataLoader extends CoreDataLoader {
 						String diagnosis_code_value = nextLine[diagnosis_code_index].trim();
 
 						if(!Strings.isNullOrEmpty(patient_id_value) && !Strings.isNullOrEmpty(admission_id_value) && !Strings.isNullOrEmpty(diagnosis_code_value)) {
-
+							
+							System.out.println("Checking patient_id_value: '" + patient_id_value + "' and admission_id_value: '" + admission_id_value + "'");
+							
 							if(strPatVisitToVisitMap.containsKey(patient_id_value + "_" + admission_id_value)) {
 
+								// System.out.println("       > FOUND patient_id_value: '" + patient_id_value + "' and admission_id_value: '" + admission_id_value + "'");
+								
 								// If the diagnosis code belongs to a diagnosis group, substitute the diagnosis code string to the diagnosis group string
 								/*
 								, Map<String, String> diagnosisCodeStringGroupsMap
@@ -185,7 +189,7 @@ public class DiagnosisDataLoader extends CoreDataLoader {
 										diagnosisCodeCount++;
 										diagnosisCodeIdStringMap.put(diagnosis_code_value, diagnosisCodeCount);
 									}
-
+									
 									visitToEnrichWithDiagnosis.getDiagnosisCodeSet().add(diagnosisCodeIdStringMap.get(diagnosis_code_value));
 
 									addedDiagnosisSet.add(patient_id_value + "_" + admission_id_value + "_" + diagnosis_code_value);
@@ -200,6 +204,9 @@ public class DiagnosisDataLoader extends CoreDataLoader {
 								}
 							}
 							else {
+
+								System.out.println("       > !!! NOT FOUND patient_id_value: '" + patient_id_value + "' and admission_id_value: '" + admission_id_value + "'");
+								
 								skippedLineCount++;
 								unexistingPatientOrVisitID++;
 								if(skippedLineCount <= 500) {

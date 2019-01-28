@@ -6,9 +6,9 @@
 Comorbidity4j has to be executed by Java 1.8 or newer. As a consequence, as a prerequisite for the execution of Comorbidity4j you need to have <a href="https://www.java.com/en/download/" target="_blank">Java</a> installed.  
   
 ## Download the JAR package 
-The compressed archive (comorbidity4j-3.1-bin.zip) that contains the latest version (LATEST_VERS = 3.1) of comorbidity4j can be downloaded at the following URL:  
+The compressed archive (comorbidity4j-3.2-bin.zip) that contains the latest version (LATEST_VERS = 3.2) of comorbidity4j can be downloaded at the following URL:  
   
-<a href="https://github.com/fra82/comorbidity4j/releases/tag/3.1" target="_blank">https://github.com/fra82/comorbidity4j/releases/tag/3.1</a>    
+<a href="https://github.com/fra82/comorbidity4j/releases/tag/3.2" target="_blank">https://github.com/fra82/comorbidity4j/releases/tag/3.2</a>    
   
   
 ## Comorbidity4j Execution  

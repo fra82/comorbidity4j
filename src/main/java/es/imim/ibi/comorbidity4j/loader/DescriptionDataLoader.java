@@ -90,7 +90,7 @@ public class DescriptionDataLoader extends CoreDataLoader {
 		
 		if(!is_first_column_header) {
 			try {
-				description_index = Integer.valueOf(code.toLowerCase().replace("col_", ""));
+				description_index = Integer.valueOf(description.toLowerCase().replace("col_", ""));
 			} catch (Exception e) {
 				e.printStackTrace();
 				errorString.append(GenericUtils.newLine + "ERROR: while identifying the index of the Patient ID column - EXCEPTION: " + e.getMessage());
@@ -98,7 +98,7 @@ public class DescriptionDataLoader extends CoreDataLoader {
 			}
 			
 			try {
-				code_index = Integer.valueOf(description.toLowerCase().replace("col_", ""));
+				code_index = Integer.valueOf(code.toLowerCase().replace("col_", ""));
 			} catch (Exception e) {
 				e.printStackTrace();
 				errorString.append(GenericUtils.newLine + "ERROR: while identifying the index of the Visit ID column - EXCEPTION: " + e.getMessage());

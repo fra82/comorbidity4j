@@ -48,6 +48,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Strings;
+import com.google.common.io.Files;
 
 import es.imim.ibi.comorbidity4j.analysis.ComorbidityMiner;
 import es.imim.ibi.comorbidity4j.analysis.ComorbidityMinerCache;
@@ -77,7 +78,7 @@ public class ComputeComorbidityServlet extends HttpServlet {
 
 	private static Random rnd = new Random();
 
-	public static String basePathResultStorage = "/home/ronzano/comorbidity4web/results/"; // Files.createTempDir().getAbsolutePath(); 
+	public static String basePathResultStorage = Files.createTempDir().getAbsolutePath();  // "/home/ronzano/comorbidity4web/results/"
 
 	private static DecimalFormat decimFormatThreeDec = new DecimalFormat("#######0.000");
 	
