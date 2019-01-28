@@ -127,11 +127,15 @@ public class ComorbidityDataset {
 				patientToRemove.add(pat);
 			}
 		}
+		int patientRemovedCount = 0;
 		for(Patient patToRemove : patientToRemove) {
 			patientList.remove(patToRemove);
-			System.out.println(" INPUT DATA SANITIZING: Patient removed because of no visits present: " + patToRemove.toString());
+			patientRemovedCount++;
 		}
-
+		if(patientRemovedCount > 0) {
+			System.out.println(" INPUT DATA SANITIZING: " + patientRemovedCount + " patient removed because of no visits present.");
+		}
+		
 
 		// Remove patients with not visits
 		Set<Integer> patientIntIDs = patientList.stream().map(pat -> pat.getIntId()).collect(Collectors.toSet());
@@ -141,9 +145,13 @@ public class ComorbidityDataset {
 				visitToRemove.add(vis);
 			}
 		}
+		int visitRemovedCount = 0;
 		for(Visit visToRemove : visitToRemove) {
 			visitList.remove(visToRemove);
-			System.out.println(" INPUT DATA SANITIZING: Visit removed because of no patients associated: " + visToRemove.toString());
+			visitRemovedCount++;
+		}
+		if(visitRemovedCount > 0) {
+			System.out.println(" INPUT DATA SANITIZING: " + visitRemovedCount + " visits removed because of no patients associated.");
 		}
 
 		// Remove visits before the birth date of patient
@@ -161,11 +169,15 @@ public class ComorbidityDataset {
 				}
 			}
 		}
+		visitRemovedCount = 0;
 		for(Visit visToRemove : visitToRemove) {
 			visitList.remove(visToRemove);
-			System.out.println(" INPUT DATA SANITIZING: Visit removed because of patient birth date is posterior to visit date: " + visToRemove.toString());
+			visitRemovedCount++;
 		}
-
+		if(visitRemovedCount > 0) {
+			System.out.println(" INPUT DATA SANITIZING: " + visitRemovedCount + " visits removed because of patient birth date is posterior to visit date.");
+		}
+		
 		// Remove visits without diagnosis
 		visitToRemove = new ArrayList<Visit>();
 		for(Visit vis : visitList) {
@@ -173,9 +185,13 @@ public class ComorbidityDataset {
 				visitToRemove.add(vis);
 			}
 		}
+		visitRemovedCount = 0;
 		for(Visit visToRemove : visitToRemove) {
 			visitList.remove(visToRemove);
-			System.out.println(" INPUT DATA SANITIZING: Visit removed because of no diagnses associated: " + visToRemove.toString());
+			visitRemovedCount++;
+		}
+		if(visitRemovedCount > 0) {
+			System.out.println(" INPUT DATA SANITIZING: " + visitRemovedCount + " visits removed because of no diagnses associated.");
 		}
 		
 		System.out.println("ENDED DATA SANITIZING.");

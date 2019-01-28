@@ -78,7 +78,7 @@ public class ComputeComorbidityServlet extends HttpServlet {
 
 	private static Random rnd = new Random();
 
-	public static String basePathResultStorage = Files.createTempDir().getAbsolutePath();  // "/home/ronzano/comorbidity4web/results/"
+	public static String basePathResultStorage = Files.createTempDir().getAbsolutePath(); // "/home/ronzano/comorbidity4web/results/"; 
 
 	private static DecimalFormat decimFormatThreeDec = new DecimalFormat("#######0.000");
 	
