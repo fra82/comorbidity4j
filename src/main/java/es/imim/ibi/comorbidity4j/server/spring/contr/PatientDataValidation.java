@@ -200,7 +200,8 @@ public class PatientDataValidation extends BaseController {
 
 				Map<String, String> rowStringMap = new TreeMap<String, String>();
 				for(int i = 0; i < row.length; i++) {
-					rowStringMap.put(columnList.get(i).get("field"), row[i]);
+					String headerName = (i < columnList.size()) ? columnList.get(i).get("field") : "_UNDEFINED_COLUMN_NAME_" + i;
+					rowStringMap.put(headerName, row[i]);
 
 					String dateFormatGuessed = ControllerUtil.determineDateFormat(row[i]);
 					if(!Strings.isEmpty(dateFormatGuessed)) {

@@ -8,7 +8,7 @@
 	<head>
 	
 	  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	  
+	      
 	  <title>Comorbidity4web</title>
 	  <!-- Jquery and JqueryUI -->
 	  <script src="${md.baseCSS_JSpath!''}js/jquery-3.2.1.min.js?v=${md.CSSJScount!'---'}"></script>
@@ -53,6 +53,13 @@
 	  <nav class="sidebarNav-c4j">
 	     <ul>
 	     	<li><div style="text-align: center; vertical-align: middle; line-height: 15px; border: none; font-family: Gill Sans, Verdana; font-size: 14px; letter-spacing: 2px; font-weight: bold;">
+	     		
+	     		<!--
+	     		<div class="sidebarNavLink-c4j" style="background:#F3FAB6; text-align:center; border: none; color:red; ">
+			    ATTENTION: possible service disruptions during 23rd and 24th February 2019 due to server mainteance
+			  	</div>
+	     		-->
+	     		
 	     		<div class="sidebarNavLink-c4j" style="background:#F3FAB6; text-align:center; border: none; margin-top: 15px;">
 	     			<img src="img/comorbidity4j-logo.png" width="220px" title="Comorbidity4j" alt="Flower">
 	  			</div>

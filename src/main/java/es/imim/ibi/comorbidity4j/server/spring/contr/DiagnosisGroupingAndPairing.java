@@ -109,12 +109,12 @@ public class DiagnosisGroupingAndPairing extends BaseController {
 								continue;
 							}
 							diagnosisListIndex.put(diagStringCode, 
-									(so.getDescrDiagnosisData_LOADED().data != null && so.getDescrDiagnosisData_LOADED().data.containsKey(diagStringCode) && !Strings.isEmpty(so.getDescrDiagnosisData_LOADED().data.get(diagStringCode))) 
+									(so.getDescrDiagnosisData_LOADED() != null && so.getDescrDiagnosisData_LOADED().data != null && so.getDescrDiagnosisData_LOADED().data.containsKey(diagStringCode) && !Strings.isEmpty(so.getDescrDiagnosisData_LOADED().data.get(diagStringCode))) 
 									? so.getDescrDiagnosisData_LOADED().data.get(diagStringCode) : "");
 
 							Map<String, String> diagnosisListEntry = new HashMap<String, String>();
 							diagnosisListEntry.put("code", diagStringCode);
-							diagnosisListEntry.put("description", (so.getDescrDiagnosisData_LOADED().data != null && so.getDescrDiagnosisData_LOADED().data.containsKey(diagStringCode) && !Strings.isEmpty(so.getDescrDiagnosisData_LOADED().data.get(diagStringCode))) 
+							diagnosisListEntry.put("description", (so.getDescrDiagnosisData_LOADED() != null && so.getDescrDiagnosisData_LOADED().data != null && so.getDescrDiagnosisData_LOADED().data.containsKey(diagStringCode) && !Strings.isEmpty(so.getDescrDiagnosisData_LOADED().data.get(diagStringCode))) 
 									? so.getDescrDiagnosisData_LOADED().data.get(diagStringCode) : "");
 							diagnosisList.add(diagnosisListEntry);
 						} 
@@ -231,12 +231,12 @@ public class DiagnosisGroupingAndPairing extends BaseController {
 								}
 
 								diagnosisListIndex.put(diagStringCode, 
-										(so.getDescrDiagnosisData_LOADED().data != null && so.getDescrDiagnosisData_LOADED().data.containsKey(diagStringCode) && !Strings.isEmpty(so.getDescrDiagnosisData_LOADED().data.get(diagStringCode))) 
+										(so.getDescrDiagnosisData_LOADED() != null && so.getDescrDiagnosisData_LOADED().data != null && so.getDescrDiagnosisData_LOADED().data.containsKey(diagStringCode) && !Strings.isEmpty(so.getDescrDiagnosisData_LOADED().data.get(diagStringCode))) 
 										? so.getDescrDiagnosisData_LOADED().data.get(diagStringCode) : "");
 
 								Map<String, String> diagnosisListEntry = new HashMap<String, String>();
 								diagnosisListEntry.put("code", diagStringCode);
-								diagnosisListEntry.put("description", (so.getDescrDiagnosisData_LOADED().data != null && so.getDescrDiagnosisData_LOADED().data.containsKey(diagStringCode) && !Strings.isEmpty(so.getDescrDiagnosisData_LOADED().data.get(diagStringCode))) 
+								diagnosisListEntry.put("description", (so.getDescrDiagnosisData_LOADED() != null && so.getDescrDiagnosisData_LOADED().data != null && so.getDescrDiagnosisData_LOADED().data.containsKey(diagStringCode) && !Strings.isEmpty(so.getDescrDiagnosisData_LOADED().data.get(diagStringCode))) 
 										? so.getDescrDiagnosisData_LOADED().data.get(diagStringCode) : "");
 								diagnosisList.add(diagnosisListEntry);
 							}
@@ -603,7 +603,7 @@ public class DiagnosisGroupingAndPairing extends BaseController {
 		if(so.getDescrDiagnosisData_LOADED() != null) {
 			model.put("skippedLine_DDE", so.getDescrDiagnosisData_LOADED().skippedLine_DDE);
 			model.put("nullOrEmptyDiagnosisDescription_DDE", so.getDescrDiagnosisData_LOADED().nullOrEmptyDiagnosisDescription_DDE);
-			model.put("numberDiagnosisDescrLoaded", (so.getDescrDiagnosisData_LOADED().data != null) ? so.getDescrDiagnosisData_LOADED().data.size() : 0);
+			model.put("numberDiagnosisDescrLoaded", (so.getDescrDiagnosisData_LOADED() != null && so.getDescrDiagnosisData_LOADED().data != null) ? so.getDescrDiagnosisData_LOADED().data.size() : 0);
 		}
 
 		// Summary of grouping and pairing
