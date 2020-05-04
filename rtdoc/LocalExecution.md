@@ -27,7 +27,7 @@ java -cp "c:\Local\Path\To\comorbidity4j-LATEST-VERS\comorbidity4j-LATEST-VERS.j
 + Open by your favorite Web browser the URL: <a href="http://localhost:8181/comorbidity4web/" target="_blank">http://localhost:8181/comorbidity4web/</a>. Here you can access the Web interface that will drive you throughout the different step and the exploration of results of a comorbidity analysis. The same Web interface can be accessed at <a href="http://comorbidity.eu/comorbidity4web/" target="_blank">http://comorbidity.eu/comorbidity4web/</a> as the COmorbidity4web service, for online execution of comorbidity analyses.  
   
   
-To specify custom server port and temporary files directory path:  
+  
 To change default server port (8181), when starting comorbidity4j local service (server), specify the following program parameter:  
   
 ```  
