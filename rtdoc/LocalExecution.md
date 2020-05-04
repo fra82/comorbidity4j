@@ -6,9 +6,9 @@
 Comorbidity4j has to be executed by Java 1.8 or newer. As a consequence, as a prerequisite for the execution of Comorbidity4j you need to have <a href="https://www.java.com/en/download/" target="_blank">Java</a> installed.  
   
 ## Download the JAR package 
-The compressed archive (comorbidity4j-3.3-bin.zip) that contains the latest version (LATEST_VERS = 3.3) of comorbidity4j can be downloaded at the following URL:  
+The compressed archive (comorbidity4j-3.4-bin.zip) that contains the latest version (LATEST_VERS = 3.4) of comorbidity4j can be downloaded at the following URL:  
   
-<a href="https://github.com/fra82/comorbidity4j/releases/tag/3.3" target="_blank">https://github.com/fra82/comorbidity4j/releases/tag/3.3</a>    
+<a href="https://github.com/fra82/comorbidity4j/releases/tag/3.4" target="_blank">https://github.com/fra82/comorbidity4j/releases/tag/3.4</a>    
   
   
 ## Comorbidity4j Execution  
@@ -18,13 +18,42 @@ The compressed archive (comorbidity4j-3.3-bin.zip) that contains the latest vers
   
 ```
 // Linux users:  
-java -cp './comorbidity4j-LATEST-VERS.jar:./lib/*' es.imim.ibi.comorbidity4j.server.StartComorbidity4j  
+java -cp '/local/path/to/comorbidity4j-LATEST-VERS/comorbidity4j-LATEST-VERS.jar:/local/path/to/comorbidity4j-LATEST-VERS/lib/*' es.imim.ibi.comorbidity4j.server.StartComorbidity4j  
     
 // Windows users:  
-java -cp "c:\Full\Local\Path\To\comorbidity4j-LATEST-VERS\comorbidity4j-LATEST-VERS.jar;c:\Full\Local\Path\To\comorbidity4j-LATEST-VERS\lib\*" es.imim.ibi.comorbidity4j.server.StartComorbidity4j  
+java -cp "c:\Local\Path\To\comorbidity4j-LATEST-VERS\comorbidity4j-LATEST-VERS.jar;c:\Local\Path\To\comorbidity4j-LATEST-VERS\lib\*" es.imim.ibi.comorbidity4j.server.StartComorbidity4j  
 ```  
   
 + Open by your favorite Web browser the URL: <a href="http://localhost:8181/comorbidity4web/" target="_blank">http://localhost:8181/comorbidity4web/</a>. Here you can access the Web interface that will drive you throughout the different step and the exploration of results of a comorbidity analysis. The same Web interface can be accessed at <a href="http://comorbidity.eu/comorbidity4web/" target="_blank">http://comorbidity.eu/comorbidity4web/</a> as the COmorbidity4web service, for online execution of comorbidity analyses.  
+  
++ Specify custom server port and temporary files directory path:  
+To change default server port (8181), when starting comorbidity4j local service (server), specify the following program parameter:  
+  
+```  
+--server.port=8585  
+```  
+  
+To change the temporary files directory path (the local directory where Comorbidity4web writes partial and final resulta of comorbidity analyses), when starting comorbidity4j local service (server), specify the following program parameter:  
+  
+```  
+// Linux users:  
+--spring.servlet.multipart.location=/path/to/temporary/files/directory/  
+  
+// Windows users:  
+--spring.servlet.multipart.location=c:\local\path\to\temporary\files\directory\  
+```  
+  
+  
+To specify a custom server port or temporary files directory path, start the server with the following program parameters:  
+```  
+// Linux users:  
+java -cp '/local/path/to/comorbidity4j-LATEST-VERS/comorbidity4j-LATEST-VERS.jar:/local/path/to/comorbidity4j-LATEST-VERS/lib/*' es.imim.ibi.comorbidity4j.server.StartComorbidity4j  
+     --server.port=PORT_NUMBER --spring.servlet.multipart.location=/path/to/temporary/files/directory/  
+  
+// Windows users:  
+java -cp "c:\Local\Path\To\comorbidity4j-LATEST-VERS\comorbidity4j-LATEST-VERS.jar;c:\Local\Path\To\comorbidity4j-LATEST-VERS\lib\*" es.imim.ibi.comorbidity4j.server.StartComorbidity4j  
+     --server.port=PORT_NUMBER --spring.servlet.multipart.location=c:\local\path\to\temporary\files\directory\  
+```  
   
   
 <a name="results"></a>  
