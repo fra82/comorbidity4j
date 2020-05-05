@@ -61,5 +61,6 @@ Comorbidity analyses can be executed:
 * [Comorbidity scores](ComorbidityScoresComputed.md)  
 * [Comorbidity table](ComorbidityTable.md)  
 * [Web-based interactive visualizations](InteractiveVisualizations.md)  
+* [Performance analysis](Performance.md)  
 * [Contacts and support](Contacts.md)  
   
