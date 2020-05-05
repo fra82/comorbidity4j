@@ -82,7 +82,7 @@ An example of the Web page where the comorbidity analysis execution can be monit
 ![Comorbidity analysis monitoring and result link page](/img/web_result_analysis_page_2.png)  
   
   
-When Comorbidity4j is executed locally, the results of comorbidity analyses are also sotred in the temporary files directory. The full local path of the temporary files directory has to be specified by means of the program parameter spring.servlet.multipart.location.  
+When Comorbidity4j is executed locally, the results of comorbidity analyses are also sotred in the temporary files directory. The full local path of the temporary files directory has to be specified by means of the program parameter spring.servlet.multipart.location. In particulr, for each comorbidity analysis executed, the temporary files directory will store the whole set of results of the analysis (CSV files and HTML visualizations) in a single ZIP file with name equal to result\_COMORBIDITY\_ANALYSIS\_ID.zip (where \_COMORBIDITY\_ANALYSIS\_ID is a unique ID identifying a specific comorbidity analysis).  
   
   
   
