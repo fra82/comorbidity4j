@@ -7,7 +7,9 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Collection;
+import java.util.Locale;
 
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -243,10 +245,15 @@ public class ComorbidityValuesTest {
 					String relativeRisk = row[12];
 					String phi = row[13];
 					String expect = row[14];
-					String score = row[15];
-
-					DecimalFormat df = new DecimalFormat("#.000");
+					String score = row[15];					
+					
+					DecimalFormatSymbols otherSymbols_fileSize = new DecimalFormatSymbols(Locale.ENGLISH);
+					otherSymbols_fileSize.setDecimalSeparator('.');
+					otherSymbols_fileSize.setGroupingSeparator(',');
+					DecimalFormat df = new DecimalFormat("#.000", otherSymbols_fileSize);
 					df.setRoundingMode(RoundingMode.HALF_DOWN);
+					df.setDecimalSeparatorAlwaysShown(true);
+					df.setGroupingUsed(false);
 
 					for(ComorbidityPairResult cpr : resultPairAnalysisMap_ALL.getRight()) {
 						if((cpr.getDisAcode().equals(diseaseAcode) && cpr.getDisBcode().equals(diseaseBcode)) ||

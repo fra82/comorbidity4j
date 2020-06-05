@@ -125,6 +125,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.2.6.RELEASE</version>
 			</plugin>
 
 		</plugins>
@@ -247,5 +248,5 @@
 	</dependencies>
 
 
-	<version>3.4</version>
+	<version>3.5</version>
 </project>

@@ -15,6 +15,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -80,10 +81,16 @@ public class ComputeComorbidityServlet extends HttpServlet {
 
 	public static String basePathResultStorage = Files.createTempDir().getAbsolutePath(); // "/home/ronzano/comorbidity4web/results/"; 
 
-	private static DecimalFormat decimFormatThreeDec = new DecimalFormat("#######0.000");
+	private static DecimalFormat decimFormatThreeDec = null;
 	
 	static {
+		DecimalFormatSymbols otherSymbols_threeDec = new DecimalFormatSymbols(Locale.ENGLISH);
+		otherSymbols_threeDec.setDecimalSeparator('.');
+		otherSymbols_threeDec.setGroupingSeparator(',');
+		decimFormatThreeDec = new DecimalFormat("#######0.000", otherSymbols_threeDec);
 		decimFormatThreeDec.setRoundingMode(RoundingMode.HALF_DOWN);
+		decimFormatThreeDec.setDecimalSeparatorAlwaysShown(true);
+		decimFormatThreeDec.setGroupingUsed(false);
 	}
 	
 	public void init() throws ServletException {
@@ -691,7 +698,15 @@ public class ComputeComorbidityServlet extends HttpServlet {
 
 						Integer totalLinesToWrite = resultPairAnalysisMap_ALL.getValue().size();
 						Integer totalLinesWritten = 0;
-						DecimalFormat decimFormat = new DecimalFormat("#.000");
+						
+						DecimalFormatSymbols otherSymbols_threeDec = new DecimalFormatSymbols(Locale.ENGLISH);
+						otherSymbols_threeDec.setDecimalSeparator('.');
+						otherSymbols_threeDec.setGroupingSeparator(',');
+						DecimalFormat decimFormat = new DecimalFormat("#.000", otherSymbols_threeDec);
+						decimFormat.setRoundingMode(RoundingMode.HALF_DOWN);
+						decimFormat.setDecimalSeparatorAlwaysShown(true);
+						decimFormat.setGroupingUsed(false);
+						
 						Iterator<ComorbidityPairResult> resultPairAnalysisMapIterator = resultPairAnalysisMap_ALL.getValue().iterator();
 						while(resultPairAnalysisMapIterator.hasNext()){
 							ComorbidityPairResult comoPair = resultPairAnalysisMapIterator.next();
@@ -749,7 +764,15 @@ public class ComputeComorbidityServlet extends HttpServlet {
 
 							Integer totalLinesToWrite = resultPairAnalysisMap_FEMALE.getValue().size();
 							Integer totalLinesWritten = 0;
-							DecimalFormat decimFormat = new DecimalFormat("#.000");
+							
+							DecimalFormatSymbols otherSymbols_int = new DecimalFormatSymbols(Locale.ENGLISH);
+							otherSymbols_int.setDecimalSeparator('.');
+							otherSymbols_int.setGroupingSeparator(',');
+							DecimalFormat decimFormat = new DecimalFormat("#.000", otherSymbols_int);
+							decimFormat.setRoundingMode(RoundingMode.HALF_DOWN);
+							decimFormat.setDecimalSeparatorAlwaysShown(true);
+							decimFormat.setGroupingUsed(false);
+							
 							Iterator<ComorbidityPairResult> resultPairAnalysisMapIterator = resultPairAnalysisMap_FEMALE.getValue().iterator();
 							while(resultPairAnalysisMapIterator.hasNext()){
 								ComorbidityPairResult comoPair = resultPairAnalysisMapIterator.next();
@@ -804,7 +827,15 @@ public class ComputeComorbidityServlet extends HttpServlet {
 
 							Integer totalLinesToWrite = resultPairAnalysisMap_MALE.getValue().size();
 							Integer totalLinesWritten = 0;
-							DecimalFormat decimFormat = new DecimalFormat("#.000");
+							
+							DecimalFormatSymbols otherSymbols_int = new DecimalFormatSymbols(Locale.ENGLISH);
+							otherSymbols_int.setDecimalSeparator('.');
+							otherSymbols_int.setGroupingSeparator(',');
+							DecimalFormat decimFormat = new DecimalFormat("#.000", otherSymbols_int);
+							decimFormat.setRoundingMode(RoundingMode.HALF_DOWN);
+							decimFormat.setDecimalSeparatorAlwaysShown(true);
+							decimFormat.setGroupingUsed(false);
+							
 							Iterator<ComorbidityPairResult> resultPairAnalysisMapIterator = resultPairAnalysisMap_MALE.getValue().iterator();
 							while(resultPairAnalysisMapIterator.hasNext()){
 								ComorbidityPairResult comoPair = resultPairAnalysisMapIterator.next();
@@ -1217,7 +1248,18 @@ public class ComputeComorbidityServlet extends HttpServlet {
 
 	}
 
-	private static DecimalFormat decimFormat = new DecimalFormat("00.000");
+	private static DecimalFormat decimFormat = null;
+	
+	static {
+		DecimalFormatSymbols otherSymbols_int = new DecimalFormatSymbols(Locale.ENGLISH);
+		otherSymbols_int.setDecimalSeparator('.');
+		otherSymbols_int.setGroupingSeparator(',');
+		decimFormat = new DecimalFormat("00.000", otherSymbols_int);
+		decimFormat.setRoundingMode(RoundingMode.HALF_DOWN);
+		decimFormat.setDecimalSeparatorAlwaysShown(true);
+		decimFormat.setGroupingUsed(false);
+	}
+	
 	private void waitForFuture(Future futInstance, PrintWriter out, String waitMessage, ComorbidityMiner cm) {
 
 		if(out != null) {

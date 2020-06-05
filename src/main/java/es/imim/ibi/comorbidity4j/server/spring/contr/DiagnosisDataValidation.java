@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -50,7 +53,17 @@ public class DiagnosisDataValidation extends BaseController {
 
 	private static final Logger logger = LoggerFactory.getLogger(DiagnosisDataValidation.class);
 	
-	private static DecimalFormat fileSizeFormatter = new DecimalFormat("##0.000");
+	private static DecimalFormat fileSizeFormatter = null;
+	
+	static {
+		DecimalFormatSymbols otherSymbols_fileSize = new DecimalFormatSymbols(Locale.ENGLISH);
+		otherSymbols_fileSize.setDecimalSeparator('.');
+		otherSymbols_fileSize.setGroupingSeparator(',');
+		fileSizeFormatter = new DecimalFormat("##0.000", otherSymbols_fileSize);
+		fileSizeFormatter.setRoundingMode(RoundingMode.HALF_DOWN);
+		fileSizeFormatter.setDecimalSeparatorAlwaysShown(true);
+		fileSizeFormatter.setGroupingUsed(false);
+	}
 	
 	@GetMapping(value = "/diagnosisData_1_specifyCSV")
 	public String diagnosisData_1_specifyCSVg(@ModelAttribute("md") ModelMap model, HttpServletRequest request) {

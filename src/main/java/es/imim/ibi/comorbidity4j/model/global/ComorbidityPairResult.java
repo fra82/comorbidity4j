@@ -2,6 +2,8 @@ package es.imim.ibi.comorbidity4j.model.global;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 import com.google.common.base.Strings;
 
@@ -13,12 +15,27 @@ import com.google.common.base.Strings;
  */
 public class ComorbidityPairResult {
 	
-	private static DecimalFormat decimFormatFiveDec = new DecimalFormat("#######0.00000");
-	private static DecimalFormat decimFormatTenDec = new DecimalFormat("#######0.0000000000");
+	private static DecimalFormat decimFormatFiveDec = null;
+	private static DecimalFormat decimFormatTenDec = null;
 	
 	static {
+		DecimalFormatSymbols otherSymbols_fiveDec = new DecimalFormatSymbols(Locale.ENGLISH);
+		otherSymbols_fiveDec.setDecimalSeparator('.');
+		otherSymbols_fiveDec.setGroupingSeparator(',');
+		decimFormatFiveDec = new DecimalFormat("#######0.00000", otherSymbols_fiveDec);
 		decimFormatFiveDec.setRoundingMode(RoundingMode.HALF_DOWN);
+		decimFormatFiveDec.setDecimalSeparatorAlwaysShown(true);
+		decimFormatFiveDec.setGroupingUsed(false);
+		
+		
+		DecimalFormatSymbols otherSymbols_tenDec = new DecimalFormatSymbols(Locale.ENGLISH);
+		otherSymbols_tenDec.setDecimalSeparator('.');
+		otherSymbols_tenDec.setGroupingSeparator(',');
+		decimFormatTenDec = new DecimalFormat("#######0.0000000000", otherSymbols_tenDec);
 		decimFormatTenDec.setRoundingMode(RoundingMode.HALF_DOWN);
+		decimFormatTenDec.setDecimalSeparatorAlwaysShown(true);
+		decimFormatTenDec.setGroupingUsed(false);
+		
 	}
 	
 	private Integer disAcodeNum;

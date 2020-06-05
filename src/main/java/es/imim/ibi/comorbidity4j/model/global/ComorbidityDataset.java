@@ -1,12 +1,15 @@
 package es.imim.ibi.comorbidity4j.model.global;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -757,7 +760,15 @@ public class ComorbidityDataset {
 		String errorOfDiagnosisCodes = "";
 		Map<String, Double> diseaseCodeNumPatients = new HashMap<String, Double>();
 		Map<String, Double> diseaseCodePercPatients = new HashMap<String, Double>();
-		DecimalFormat decimFormat = new DecimalFormat("#.0000");
+		
+		DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.ENGLISH);
+		otherSymbols.setDecimalSeparator('.');
+		otherSymbols.setGroupingSeparator(',');
+		DecimalFormat decimFormat = new DecimalFormat("#.0000", otherSymbols);
+		decimFormat.setRoundingMode(RoundingMode.HALF_UP);
+		decimFormat.setDecimalSeparatorAlwaysShown(true);
+		decimFormat.setGroupingUsed(false);
+		
 		for(Entry<String, Integer> diangCodeIDelem : diagnosisCodeStringIdMap.entrySet()) {
 			if(diangCodeIDelem != null && diangCodeIDelem.getKey() != null && diangCodeIDelem.getValue() != null) {
 				try {

@@ -1,7 +1,7 @@
 ![Comorbidity4j](/img/logo.png)
 <h3>Open-source Java tool to analyze comorbidities over large datasets of patients</h3>
 
-**Latest version: 3.4**
+**Latest version: 3.5**
   
 Comorbidity4j is an Open-source java tool tailored to easily perform <a href="https://en.wikipedia.org/wiki/Comorbidity" target="_blank">comorbidity analyses</a>, thus **supporting the analysis of significant cooccurrences of diseases over large datasets of patient data**.  
 

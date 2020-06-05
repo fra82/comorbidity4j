@@ -1,12 +1,15 @@
 package es.imim.ibi.comorbidity4j.analysis;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
@@ -657,7 +660,15 @@ public class ComorbidityMiner {
 
 		int processedPairCountExt = 0;
 		double prevPercProcessedPairsPritnedExt = 0.0d;
-		DecimalFormat decimFormat = new DecimalFormat("#.000");
+		
+		DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.ENGLISH);
+		otherSymbols.setDecimalSeparator('.');
+		otherSymbols.setGroupingSeparator(',');
+		DecimalFormat decimFormat = new DecimalFormat("#.000", otherSymbols);
+		decimFormat.setRoundingMode(RoundingMode.HALF_UP);
+		decimFormat.setDecimalSeparatorAlwaysShown(true);
+		decimFormat.setGroupingUsed(false);
+		
 		final long analysisStartTimeExt = System.currentTimeMillis();
 		String errorStr = "";
 		String outString = "";

@@ -2,11 +2,13 @@ package es.imim.ibi.comorbidity4j.server.reservlet;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 
@@ -29,10 +31,16 @@ public class ComputeComorbidityThread implements Callable<String> {
 	private boolean filterInteresting = false;
 	private int maxValueOfPairsNotToApplyFilter = 100000000;
 	
-	private static DecimalFormat decimFormatFiveDec = new DecimalFormat("#######0.00000");
+	private static DecimalFormat decimFormatFiveDec = null;
 	
 	static {
+		DecimalFormatSymbols otherSymbols_fiveDec = new DecimalFormatSymbols(Locale.ENGLISH);
+		otherSymbols_fiveDec.setDecimalSeparator('.');
+		otherSymbols_fiveDec.setGroupingSeparator(',');
+		decimFormatFiveDec = new DecimalFormat("#######0.00000", otherSymbols_fiveDec);
 		decimFormatFiveDec.setRoundingMode(RoundingMode.HALF_DOWN);
+		decimFormatFiveDec.setDecimalSeparatorAlwaysShown(true);
+		decimFormatFiveDec.setGroupingUsed(false);
 	}
 	
 	public ComputeComorbidityThread(ComorbidityMiner currentExecutor,

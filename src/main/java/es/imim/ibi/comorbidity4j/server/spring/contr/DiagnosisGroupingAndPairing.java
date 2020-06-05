@@ -2,11 +2,14 @@ package es.imim.ibi.comorbidity4j.server.spring.contr;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -48,7 +51,17 @@ public class DiagnosisGroupingAndPairing extends BaseController {
 
 	private static final Logger logger = LoggerFactory.getLogger(DiagnosisGroupingAndPairing.class);
 	
-	private static DecimalFormat fileSizeFormatter = new DecimalFormat("##0.00000");
+	private static DecimalFormat fileSizeFormatter = null;
+	
+	static {
+		DecimalFormatSymbols otherSymbols_fileSize = new DecimalFormatSymbols(Locale.ENGLISH);
+		otherSymbols_fileSize.setDecimalSeparator('.');
+		otherSymbols_fileSize.setGroupingSeparator(',');
+		fileSizeFormatter = new DecimalFormat("##0.00000", otherSymbols_fileSize);
+		fileSizeFormatter.setRoundingMode(RoundingMode.HALF_DOWN);
+		fileSizeFormatter.setDecimalSeparatorAlwaysShown(true);
+		fileSizeFormatter.setGroupingUsed(false);
+	}
 	
 	@GetMapping(value = "/diagnosisGrouping")
 	public String diseaseGrouping(@ModelAttribute("md") ModelMap model, HttpServletRequest request) {

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TimeZone;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.json.simple.JSONValue;
 
@@ -61,8 +63,10 @@ public class TemplateUtils {
 	private static SimpleDateFormat dateFormatterCSVfileName = new SimpleDateFormat("yyyy_MM_dd__HH_mm_ss");
 	private static SimpleDateFormat dateFormatterTimezone = new SimpleDateFormat("EEE yyyy-MM-dd HH:mm:ss ZZZZ");
 	
-	private static DecimalFormat decimFormat = new DecimalFormat("#######0.00##");
-	private static NumberFormat decimFormatInt = DecimalFormat.getInstance();
+	
+	private static DecimalFormat decimFormat = null;
+	
+	private static NumberFormat decimFormatInt = DecimalFormat.getInstance(Locale.ENGLISH);
 	   
 	
 	static {
@@ -74,7 +78,13 @@ public class TemplateUtils {
 		cfg.setLocale(Locale.US);
 		cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
 
+		DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(Locale.ENGLISH);
+		otherSymbols.setDecimalSeparator('.');
+		otherSymbols.setGroupingSeparator(',');
+		decimFormat = new DecimalFormat("#######0.00######", otherSymbols);
 		decimFormat.setRoundingMode(RoundingMode.HALF_UP);
+		decimFormat.setDecimalSeparatorAlwaysShown(true);
+		decimFormat.setGroupingUsed(false);
 		
 		decimFormatInt.setRoundingMode(RoundingMode.FLOOR);
 		decimFormatInt.setMinimumFractionDigits(0);
@@ -1484,9 +1494,19 @@ public class TemplateUtils {
 	}
 
 	public static String roundToFirstNonZero(Double inputNumber, boolean oneAsFirstDigit) {
+		
 		String outputStringNumber = "";
-
+		
+		double functID = rnd.nextDouble();
+		
 		String inputNumberStr = decimFormat.format(inputNumber);
+		
+		// Decimal separator: .
+		// No grouping separator
+		if((!inputNumberStr.contains(".") && inputNumberStr.contains(",")) || (inputNumberStr.contains(".") && inputNumberStr.contains(",")) || (StringUtils.countMatches(inputNumberStr, ".") > 1) || (StringUtils.countMatches(inputNumberStr, ",") > 1)) {
+			System.out.println("Number format error: " + ((inputNumberStr != null) ? inputNumberStr : "NULL"));
+		}
+				
 		if(inputNumberStr.equals("0")) {
 			outputStringNumber = "0.0";
 		}
@@ -1511,14 +1531,16 @@ public class TemplateUtils {
 			}
 
 			if(inputNumberStr.equals("0.") || inputNumberStr.equals("-0.")) {
-				outputStringNumber += "0";
+				outputStringNumber += "0.0";
 			}
 
 		}
 		else {
-			// Greater than one number
+			// Greater or equal than one number
 
-			if(inputNumberStr.contains(".")) inputNumberStr = inputNumberStr.substring(0, inputNumberStr.indexOf("."));
+			if(inputNumberStr.contains(".")) {
+				inputNumberStr = inputNumberStr.substring(0, inputNumberStr.indexOf("."));
+			}
 
 			boolean foundFirstNonZeroDigit = false;
 			for(int i = 0; i < inputNumberStr.length(); i++) {
@@ -1536,7 +1558,7 @@ public class TemplateUtils {
 				}
 			}
 		}
-
+		
 		return outputStringNumber;
 	}
 	
@@ -2284,6 +2306,27 @@ public class TemplateUtils {
 
 	public static void main(String[] args) {
 		// TemplateUtils.generateHTMLanalysisResTemplate(null, null, null, null);
+		Double num = 4.3239d;
+		System.out.println(num + " > " + Double.valueOf(roundToFirstNonZero(num, true)));
+		num = 000523091823.3239d;
+		System.out.println(num + " > " + Double.valueOf(roundToFirstNonZero(num, true)));
+		num = 0.00002329d;
+		System.out.println(num + " > " + Double.valueOf(roundToFirstNonZero(num, true)));
+		num = 5.4232d;
+		System.out.println(num + " > " + Double.valueOf(roundToFirstNonZero(num, true)));
+		num = 702.32321d;
+		System.out.println(num + " > " + Double.valueOf(roundToFirstNonZero(num, true)));
+		
+		num = 4.3239d;
+		System.out.println(num + " > " + Double.valueOf(roundToFirstNonZero(num, false)));
+		num = 000523091823.3239d;
+		System.out.println(num + " > " + Double.valueOf(roundToFirstNonZero(num, false)));
+		num = 0.00002329d;
+		System.out.println(num + " > " + Double.valueOf(roundToFirstNonZero(num, false)));
+		num = 5.4232d;
+		System.out.println(num + " > " + Double.valueOf(roundToFirstNonZero(num, false)));
+		num = 702.32321d;
+		System.out.println(num + " > " + Double.valueOf(roundToFirstNonZero(num, false)));
 	}
 
 
