@@ -142,7 +142,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>23.3-jre</version>
+			<version>29.0-jre</version>
 		</dependency>
 
 		<!-- APACHE COLLECTIONS UTILS: https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
